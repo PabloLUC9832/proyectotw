@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
-    <title>Home UV</title>
+    <title>Sistema de Préstamos | Home</title>
 </head>
 <body>
 
@@ -17,12 +17,9 @@
     include 'header.php';
     ?>
     <!-- HEADER -->
-<!-- 
-    <h1>Registro de </h1>
 
 
-    <button type="button" class="btn btn-primary">Primary</button> -->
-    
+
 </body>
 </html>
 

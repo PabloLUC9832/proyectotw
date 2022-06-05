@@ -10,7 +10,7 @@
                     <a class="nav-link text-white" href="">Acerca de Nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="">Registro de Solicitud</a>
+                    <a class="nav-link text-white" href="./registro_de_solicitud.php">Registro de Solicitud</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="">Lista de Usuarios</a>
@@ -27,4 +27,7 @@
             </ul>
         </div>
     </nav>
+<!--     <?php date_default_timezone_set('America/Mexico_City'); ?>
+    <p class="text-right"><b><?php echo date('d-m-Y' ); ?></b></p> -->
+   
 </header>
