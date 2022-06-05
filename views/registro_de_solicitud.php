@@ -1,3 +1,5 @@
+<!-- Añadirlo al php.ini: extension=php_intl.dll -->
+<!-- https://unicode-org.github.io/icu/userguide/format_parse/datetime/ -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,13 +10,13 @@
     <!-- CSS only -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
 
     <!-- HEADER -->
     <?php
-    include 'header.php';
+    include './header.php';
     ?>
     <!-- HEADER -->
 
@@ -23,11 +25,20 @@
         <h2 class="text-center">Registro de Solicitud para Préstamo de Equipo de Cómputo</h2>
 
         <div class="text-right">
-            <p><b><?php echo date('d-m-Y' ); ?></b></p>
+            <!-- <p><b><?php echo date('l d-m-Y' ); ?></b></p> -->
+            <?php 
+            date_default_timezone_set( 'America/Mexico_City' );
+            $dateTimeObj = new DateTime('now', new DateTimeZone('America/Mexico_City'));
+            $dateFormatted =IntlDateFormatter::formatObject($dateTimeObj, 'EEEE dd/MMMM/yyyy ', 'es');
+            echo ucwords($dateFormatted);
+            ?>            
             <a type="button" class="btn btn-outline-danger btn-sm" href="./index.php">Salir</a>
+            
         </div>
+
+
         
-        <form >
+        <form action="../backend/registro_de_solicitud.php" method="POST">
 
             <div class="form-group row">
                 <label for="usuario" class="col-sm-2 col-form-label col-form-label-sm">Nombre de usuario</label>
