@@ -20,101 +20,98 @@
 
     <main>
 
-        <h2 class="text-center">Regitro de Solicitud para el préstamo de un equipo de cómputo</h2>
+        <h2 class="text-center">Registro de Solicitud para Préstamo de Equipo de Cómputo</h2>
 
         <div class="text-right">
             <p><b><?php echo date('d-m-Y' ); ?></b></p>
             <a type="button" class="btn btn-outline-danger btn-sm" href="./index.php">Salir</a>
         </div>
         
-        <form>
+        <form >
+
             <div class="form-group row">
                 <label for="usuario" class="col-sm-2 col-form-label col-form-label-sm">Nombre de usuario</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="usuario" placeholder="Nombre de usuario" required>
+                    <input type="text" class="form-control form-control-sm" id="usuario" placeholder="Nombre de usuario" required name="nombre">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="matricula" class="col-sm-2 col-form-label col-form-label-sm">Matrícula</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="matricula" placeholder="matrícula" required>
+                    <input type="text" class="form-control form-control-sm" id="matricula" placeholder="matrícula" required name="matricula">
                 </div>
             </div>
             
             <div class="form-group row">
                 <label for="carrera" class="col-sm-2 col-form-label col-form-label-sm">Carrera</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="carrera" placeholder="carrera" required>
+                    <input type="text" class="form-control form-control-sm" id="carrera" placeholder="carrera" required name="carrera">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="horaEntrada" class="col-sm-2 col-form-label col-form-label-sm">Hora de entrada</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" required>
+                    <input type="text" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" required name="horaEntrada">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="horaSalida" class="col-sm-2 col-form-label col-form-label-sm">Hora de salida</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="horaSalida" placeholder="Hora de salida" required>
+                    <input type="text" class="form-control form-control-sm" id="horaSalida" placeholder="Hora de salida" required name="horaSalida">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="nombreEquipo" class="col-sm-2 col-form-label col-form-label-sm">Nombre del equipo</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="nombreEquipo" placeholder="Nombre del equipo" required>
+                    <input type="text" class="form-control form-control-sm" id="nombreEquipo" placeholder="Nombre del equipo" required name="nombreEquipo">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="descripcionEquipo" class="col-sm-2 col-form-label col-form-label-sm">Descripción del equipo</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="descripcionEquipo" placeholder="Descripción del equipo" required>
+                    <input type="text" class="form-control form-control-sm" id="descripcionEquipo" placeholder="Descripción del equipo" required name="descripcionEquipo">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="nInventario" class="col-sm-2 col-form-label col-form-label-sm">Número de inventario</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="nInventario" placeholder="Número de inventario" required>
+                    <input type="text" class="form-control form-control-sm" id="nInventario" placeholder="Número de inventario" required name="nInventario">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="objetivo" class="col-sm-2 col-form-label col-form-label-sm">Objetivo del préstamo</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="objetivo" placeholder="Objetivo del préstamo" required>
+                    <input type="text" class="form-control form-control-sm" id="objetivo" placeholder="Objetivo del préstamo" required name="objetivo">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="materia" class="col-sm-2 col-form-label col-form-label-sm">Materia</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="materia" placeholder="Materia" required>
+                    <input type="text" class="form-control form-control-sm" id="materia" placeholder="Materia" required name="materia">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="maestro" class="col-sm-2 col-form-label col-form-label-sm">Maestro</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="maestro" placeholder="Maestro" required>
+                    <input type="text" class="form-control form-control-sm" id="maestro" placeholder="Maestro" required name="maestro">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="fecha" class="col-sm-2 col-form-label col-form-label-sm">Fecha</label>
                 <div class="col-sm-9">
-                    <input type="date" value="<?php echo date('Y-m-d'); ?>"  disabled  id="fecha"/>
+                    <input type="date" value="<?php echo date('Y-m-d'); ?>"  disabled  id="fecha" name="fecha"/>
                 </div>
             </div>
-
-<!--             <div class="tex-center">
-                <button type="submit" class="btn btn-primary mb-2">Enviar</button>
-            </div> -->
 
             <div class="container">
                 <div class="row">
