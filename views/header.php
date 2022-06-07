@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="../views/registro_de_solicitud.php">Sistema de Préstamos de Equipo de Cómputo UV</a>
+        <a class="navbar-brand" href="../views/index.php">Sistema de Préstamos de Equipo de Cómputo UV</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -13,10 +13,10 @@
                     <a class="nav-link text-white" href="../views/registro_de_solicitud.php">Registro de Solicitud</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="">Lista de Usuarios</a>
+                    <a class="nav-link text-white" href="../views/lista_de_usuarios.php">Lista de Usuarios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="">Bitácora</a>
+                    <a class="nav-link text-white" href="../views/bitacora.php">Bitácora</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="">Observaciones</a>

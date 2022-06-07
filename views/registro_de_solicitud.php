@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Solicitud</title>
-    <!-- CSS only -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
@@ -56,9 +56,18 @@
                 <div class="form-group row">
                     <label for="carrera" class="col-sm-2 col-form-label col-form-label-sm">Carrera</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control form-control-sm" id="carrera" placeholder="carrera" required name="carrera">
+                        <!-- <input type="text" class="form-control form-control-sm" id="carrera" placeholder="carrera" required name="carrera"> -->
+                        <select class="custom-select custom-select" name="carrera">
+                            <option selected>Selecciona una carrera</option>
+                            <option value="Estadística">Estadística</option>
+                            <option value="Redes y Servicio de Cómputo">Redes y Servicio de Cómputo</option>
+                            <option value="Tecnologías Computacionales">Tecnologías Computacionales</option>
+                            <option value="Ingeniería de Software">Ingeniería de Software</option>
+                            <option value="Ciencias y Técnicas Estadísticas">Ciencias y Técnicas Estadísticas</option>
+                        </select>
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <label for="horaEntrada" class="col-sm-2 col-form-label col-form-label-sm">Hora de entrada</label>
                     <div class="col-sm-9">

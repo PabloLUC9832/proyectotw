@@ -2,10 +2,11 @@
 
 /* echo "<pre>";
 print_r($_POST);
-echo "</pre>"; */
-
+echo "</pre>";
+ */
 $nombre = $_POST["nombre"];
 $matricula = $_POST["matricula"];
+$carrera = $_POST["carrera"];
 $horaEntrada = $_POST["horaEntrada"];
 $horaSalida = $_POST["horaSalida"];
 $nombreEquipo = $_POST["nombreEquipo"];
@@ -42,7 +43,7 @@ $flag = true;
     <?php if($flag): ?>
     
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>¡Éxito!</strong> Tu solicitud ha sido enviada exitosamente.
+        <strong>¡Éxito!</strong> Tu solicitud ha sido enviada exitosamente. <?= $carrera ?>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
