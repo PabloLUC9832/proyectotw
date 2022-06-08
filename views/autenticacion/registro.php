@@ -16,7 +16,7 @@
 
     <div class="container m-5">
 
-        <form action="../../backend/autenticacion/registro.php" method="POST">
+        <form action="" method="POST">
             
             <div class="form-group row">
                 <label for="nombre" class="col-sm-2 col-form-label col-form-label">Nombre</label>
@@ -43,7 +43,8 @@
 
         </form>
 
-        <p class="mt-5">Ya tienes cuenta. <span><a href="./inicio_de_sesion.php"><b>Inicia Sesión aquí</b></a></span> </p>
+        <!-- <p class="mt-5">Ya tienes cuenta. <span><a href="./inicio_de_sesion.php"><b>Inicia Sesión aquí</b></a></span> </p> -->
+        <p class="mt-5">Ya tienes cuenta. <span><a href="../../views/index.php"><b>Inicia Sesión aquí</b></a></span> </p>
 
     </div>
 

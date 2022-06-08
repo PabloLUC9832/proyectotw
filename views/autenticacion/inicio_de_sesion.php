@@ -48,7 +48,7 @@
 
         </form>
 
-        <p class="mt-5">¿Aún no tienes cuenta? <span><a href="./autenticacion/registro.php"><b>Registrate aquí</b></a></span> </p>
+        <p class="mt-5">¿Aún no tienes cuenta? <span><a href="../backend/autenticacion/registro.php"><b>Registrate aquí</b></a></span> </p>
 
     </div>
 

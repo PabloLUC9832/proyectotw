@@ -38,6 +38,19 @@ class Usuario extends DB{
         return $this->nombre;
     }
 
+    public function insertarUser($nombre,$matricula,$password){
+        $md5pass = md5($password);
+
+        $query = $this->connect()->prepare('INSERT INTO usuarios (nombre,matricula,password) VALUES (:nombre, :matricula, :password)');
+        $query -> execute(['nombre' => $nombre, 'matricula' => $matricula, 'password' => $md5pass]);
+
+/*         if($query){
+            return true;
+        }else{
+            return false;
+        } */
+
+    }
 
 }
 
