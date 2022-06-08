@@ -1,7 +1,7 @@
 <?php
 //session_start();
  //Si el usuario ya ha iniciado sesión, entonces que se re diriga al home
-if(isset($_SESSION["usuario"])  === !true){
+if(isset($_SESSION["usuario"])  !== true){
     header("location: inicio_de_sesion.php");
     exit;
 }
@@ -28,10 +28,8 @@ if(isset($_SESSION["usuario"])  === !true){
     ?>
     <!-- HEADER -->
 
-
-    <h6 class="text-right"> Bienvenido <span> <b><?=  $usuario->getNombre(); ?></b> </span> </h6>
-    <h6 class="text-right"> Bienvenido <span> <b><?=  $usuario->getMatricula(); ?></b> </span> </h6>
     <h6 class="text-right"> Bienvenido <span> <b> <?php echo htmlspecialchars($_SESSION["usuario"]); ?></b> </span> </h6>
+    <h6 class="text-right"> Bienvenido <span> <b> <?= $usuario->getNombre(); ?></b> </span> </h6>
     <div class="text-right">
         <a class="btn btn-outline-danger" href="../controllers/logout.php" role="button">Cerrar Sesión</a>
     </div>

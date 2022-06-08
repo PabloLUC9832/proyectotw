@@ -9,7 +9,7 @@ $usuario = new Usuario();
 if(isset($_SESSION['usuario'])){
   //echo "hay sesion  {$_SESSION['usuario']}";
   $usuario->setUser($usuarioSession->getCurrentUser());
-  echo "hay sesion  {$_SESSION['usuario']} ". $usuario->getNombre();
+  //echo "hay sesion  {$_SESSION['usuario']} ". $usuario->getNombre();
 
   $var = "{$_SESSION['usuario']}";
 

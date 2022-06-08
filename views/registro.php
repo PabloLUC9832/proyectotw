@@ -16,12 +16,23 @@
 
     <div class="container m-5">
 
+        <?php if(isset($mensaje)): ?>
+
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <strong> <?= $mensaje ?> </strong>  
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <?php endif; ?>
+
         <form action="" method="POST">
             
             <div class="form-group row">
                 <label for="nombre" class="col-sm-2 col-form-label col-form-label">Nombre</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" required name="nombre" onkeydown="return /[a-z]/i.test(event.key)">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" required name="nombre">
                     <!-- <input onkeydown="return /[a-z]/i.test(event.key)"> -->
                 </div>
             </div>
@@ -45,7 +56,7 @@
         </form>
 
         <!-- <p class="mt-5">Ya tienes cuenta. <span><a href="./inicio_de_sesion.php"><b>Inicia Sesión aquí</b></a></span> </p> -->
-        <p class="mt-5">Ya tienes cuenta. <span><a href="../index.php"><b>Inicia Sesión aquí</b></a></span> </p>
+        <p class="mt-5">Ya tienes cuenta. <span><a href="../views/index.php"><b>Inicia Sesión aquí</b></a></span> </p>
 
     </div>
 

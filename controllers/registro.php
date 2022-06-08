@@ -1,19 +1,34 @@
 <?php
 
 include_once 'usuario.php';
-include_once '../views/registro.php';
+//include_once '../views/registro.php';
 include_once 'usuario_session.php';
 
 
 $usuario = new Usuario();
 $usuarioSession = new UsuarioSession();
 
-$nombre = $_POST['nombre'];
+/* $nombre = $_POST['nombre'];
 $matricula = $_POST['matricula'];
-$password = $_POST['password'];
+$password = $_POST['password']; */
 
 
-$usuario->insertarUser($nombre,$matricula,$password);
+if((isset($_POST['nombre']) && isset($_POST['matricula']) && isset($_POST['password']))==false){
+  $mensaje = "Ingresa los datos solicitados .";
+  include_once '../views/registro.php';
+}else{
+  $nombre = $_POST['nombre'];
+  $matricula = $_POST['matricula'];
+  $password = $_POST['password'];
+  if($usuario->insertarUser($nombre,$matricula,$password)==false){
+    $mensaje = "Ha ocurrido un error";
+  }else{
+    header("location: ../views/index.php");
+  }
+}
+
+
+/* $usuario->insertarUser($nombre,$matricula,$password);
 //header("location: ../../views/index.php");
 
  if(isset($_POST['matricula']) && isset($_POST['password'])){
@@ -33,6 +48,6 @@ $usuario->insertarUser($nombre,$matricula,$password);
     }
   
   
-  } 
+  }  */
 
 ?>

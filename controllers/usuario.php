@@ -64,11 +64,11 @@ class Usuario extends DB{
             $this->nombre = $currentUser['nombre'];
         }        
 
-/*         if($query){
+         if($query){
             return true;
         }else{
             return false;
-        } */
+        } 
 
     }
 

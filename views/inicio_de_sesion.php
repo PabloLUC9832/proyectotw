@@ -1,7 +1,7 @@
 <?php
 //session_start();
  //Si el usuario ya ha iniciado sesión, entonces que se re diriga al home
-if(isset($_SESSION["usuario"])  === true){
+if(isset($_SESSION["usuario"])  !== true){
     header("location: home.php");
     exit;
 }
