@@ -1,7 +1,7 @@
 <?php
 //https://youtu.be/Tb-_cEAsp4s
-include_once '../backend/usuario.php';
-include_once '../backend/usuario_session.php';
+include_once '../controllers/usuario.php';
+include_once '../controllers/usuario_session.php';
 
 $usuarioSession = new UsuarioSession();
 $usuario = new Usuario();
@@ -30,13 +30,13 @@ if(isset($_SESSION['usuario'])){
   }else{
     //echo "error";
     $errorLogin = "Matricula y/o contraseña incorrectos .";
-    include_once './autenticacion/inicio_de_sesion.php';
+    include_once './inicio_de_sesion.php';
   }
 
 
 }else{    
     //echo "login";
-    include_once './autenticacion/inicio_de_sesion.php';
+    include_once './inicio_de_sesion.php';
 }
 
 ?>
