@@ -16,7 +16,21 @@
 
     <div class="container m-5">
 
-        <form action="">
+        <form action="" method="POST">
+
+            <?php if(isset($errorLogin)): ?>
+
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>:(</strong> <?=  $errorLogin; ?> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <?php endif; ?>
+
+
+
             <div class="form-group row">
                 <label for="matricula" class="col-sm-2 col-form-label col-form-label">Matrícula</label>
                 <div class="col-sm-4">
@@ -34,7 +48,7 @@
 
         </form>
 
-        <p class="mt-5">¿Aún no tienes cuenta? <span><a href="./registro.php"><b>Registrate aquí</b></a></span> </p>
+        <p class="mt-5">¿Aún no tienes cuenta? <span><a href="./autenticacion/registro.php"><b>Registrate aquí</b></a></span> </p>
 
     </div>
 

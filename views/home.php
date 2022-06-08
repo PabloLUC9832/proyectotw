@@ -1,43 +1,4 @@
-<?php
-
-include_once '../backend/usuario.php';
-include_once '../backend/usuario_session.php';
-
-$usuarioSession = new UsuarioSession();
-$usuario = new Usuario();
-
-if(isset($_SESSION['usuario'])){
-  //echo "hay sesion";
-  $usuario->setUser($usuarioSession->getCurrentUser());
-  include_once './home.php';
-  
-}else if(isset($_POST['matricula']) && isset($_POST['password'])){
-  //echo "validacion de login";
-  $matriculaForm = $_POST['matricula'];
-  $passwordForm = $_POST['password'];
-
-  if($usuario->userExists($matriculaForm,$passwordForm)){
-    //echo "Usuario validado";
-    $usuarioSession->setCurrentUser($matriculaForm);
-    $usuario->setUser($matriculaForm);
-
-    include_once './home.php';
-
-  }else{
-    //echo "error";
-    $errorLogin = "Matricula y/o contraseña incorrectos .";
-    include_once './autenticacion/inicio_de_sesion.php';
-  }
-
-
-}else{    
-    //echo "login";
-    include_once './autenticacion/inicio_de_sesion.php';
-}
-
-?>
-
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -50,14 +11,18 @@ if(isset($_SESSION['usuario'])){
     <title>Sistema de Préstamos UV | Home</title>
 </head>
 <body>
--->
-    <!-- HEADER -->
-    
 
     <!-- HEADER -->
+    <?php
+    include '../views/header.php';
+    ?>
+    <!-- HEADER -->
 
 
+    <h6 class="text-right"> Bienvenido <span> <b><?=  $usuario->getNombre(); ?></b> </span> </h6>
+    <div class="text-right">
+        <a class="btn btn-outline-danger" href="../backend/logout.php" role="button">Cerrar Sesión</a>
+    </div>
 
-<!-- </body>
+</body>
 </html>
- -->
