@@ -14,15 +14,17 @@
 
     <!-- HEADER -->
     <?php
-    include '../views/header.php';
+    include 'header.php';
     ?>
     <!-- HEADER -->
 
 
     <h6 class="text-right"> Bienvenido <span> <b><?=  $usuario->getNombre(); ?></b> </span> </h6>
+    <h6 class="text-right"> Bienvenido <span> <b><?=  $usuario->getMatricula(); ?></b> </span> </h6>
     <div class="text-right">
         <a class="btn btn-outline-danger" href="../backend/logout.php" role="button">Cerrar Sesión</a>
     </div>
+
 
 </body>
 </html>

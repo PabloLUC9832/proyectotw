@@ -8,9 +8,12 @@ class Usuario extends DB{
     private $matricula;
 
     public function userExists($matricula,$password){
+    //public function userExists($nombre,$password){
         $md5pass = md5($password);
 
         $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula AND password = :password');
+        //$query = $this->connect()->prepare('SELECT * FROM usuarios WHERE nombre = :nombre AND password = :password');
+        //$query->execute(['nombre'=> $nombre, 'password' => $md5pass]);
         $query->execute(['matricula'=> $matricula, 'password' => $md5pass]);
 
         if($query->rowCount()){
@@ -22,27 +25,44 @@ class Usuario extends DB{
     }
 
     public function setUser($matricula){
+    //public function setUser($nombre){
         
         $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula');
+        //$query = $this->connect()->prepare('SELECT * FROM usuarios WHERE nombre = :nombre');
         $query ->execute(['matricula' => $matricula]);
+        //$query ->execute(['nombre' => $nombre]);
 
         foreach ($query as $currentUser){
-            $this->nombre = $currentUser['nombre'];
             $this->matricula = $currentUser['matricula'];
+            $this->nombre = $currentUser['nombre'];
         }
 
 
     }
 
-    public function getNombre(){
-        return $this->nombre;
+/*     public function getNombre(){
+        return $this->nombre ;
     }
+
+    public function getMatricula(){
+        return $this->matricula ;
+    } */
 
     public function insertarUser($nombre,$matricula,$password){
         $md5pass = md5($password);
 
         $query = $this->connect()->prepare('INSERT INTO usuarios (nombre,matricula,password) VALUES (:nombre, :matricula, :password)');
         $query -> execute(['nombre' => $nombre, 'matricula' => $matricula, 'password' => $md5pass]);
+
+        $query1 = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula');
+        //$query = $this->connect()->prepare('SELECT * FROM usuarios WHERE nombre = :nombre');
+        $query1 ->execute(['matricula' => $matricula]);
+        //$query ->execute(['nombre' => $nombre]);
+
+        foreach ($query1 as $currentUser){
+            $this->matricula = $currentUser['matricula'];
+            $this->nombre = $currentUser['nombre'];
+        }        
 
 /*         if($query){
             return true;
@@ -51,6 +71,14 @@ class Usuario extends DB{
         } */
 
     }
+
+    public function getNombre(){
+        return $this->nombre ;
+    }
+
+    public function getMatricula(){
+        return $this->matricula ;
+    }    
 
 }
 

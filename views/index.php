@@ -7,8 +7,12 @@ $usuarioSession = new UsuarioSession();
 $usuario = new Usuario();
 
 if(isset($_SESSION['usuario'])){
-  //echo "hay sesion";
+  //echo "hay sesion  {$_SESSION['usuario']}";
   $usuario->setUser($usuarioSession->getCurrentUser());
+  echo "hay sesion  {$_SESSION['usuario']} ". $usuario->getNombre();
+
+  $var = "{$_SESSION['usuario']}";
+
   include_once './home.php';
   
 }else if(isset($_POST['matricula']) && isset($_POST['password'])){
