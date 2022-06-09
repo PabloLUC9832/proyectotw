@@ -1,3 +1,7 @@
+<?php 
+include_once '../controllers/usuario.php';
+$usuario = new Usuario();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -34,16 +38,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+
+<!--         <tr>
           <td>Pablo</td>
           <td>10:50</td>
-        </tr>
+        </tr> -->
     
-        <tr>
-          <?php for($i=1;$i<3;$i++): ?>
-          <td><?= $i ?></td>
-          <?php endfor; ?>
-        </tr>
+          
+          <?= $usuario->listarUsuarios(); ?>          
+
     
       </tbody>
     </table>

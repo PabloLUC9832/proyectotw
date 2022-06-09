@@ -10,7 +10,7 @@
                     <a class="nav-link text-white" href="">Acerca de Nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="../views/registro_de_solicitud.php">Registro de Solicitud</a>
+                    <a class="nav-link text-white" href="registro_de_solicitud.php">Registro de Solicitud</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="../views/lista_de_usuarios.php">Lista de Usuarios</a>

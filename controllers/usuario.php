@@ -40,14 +40,6 @@ class Usuario extends DB{
 
     }
 
-/*     public function getNombre(){
-        return $this->nombre ;
-    }
-
-    public function getMatricula(){
-        return $this->matricula ;
-    } */
-
     public function insertarUser($nombre,$matricula,$password){
         $md5pass = md5($password);
 
@@ -73,12 +65,47 @@ class Usuario extends DB{
     }
 
     public function getNombre(){
-        return $this->nombre ;
+        return $this->nombre ;         
     }
 
     public function getMatricula(){
         return $this->matricula ;
     }    
+
+    public function listarUsuarios(){
+
+        $nombre = "";
+        $matricula = "";
+
+        $data = $this->connect()->prepare('SELECT * FROM usuarios');
+        $data ->execute();
+        // and somewhere later:
+        foreach ($data as $row) {
+            echo  "<tr>" ;
+            echo  "<td>" . $row['nombre'] . "</td>";
+            echo  "<td>" . $row['matricula'] . "</td>";
+            echo  "</tr>" ;
+
+        }
+
+    }
+
+    public function listarUsuarios2(){
+
+        $nombre = "";
+        $matricula = "";
+
+        $data = $this->connect()->prepare('SELECT * FROM usuarios');
+        $data ->execute();
+        // and somewhere later:
+        foreach ($data as $row) {
+            //echo  $row['matricula'];
+            echo  "<td>" . $row['matricula'] . "</td>";;
+        }
+
+    }
+
+
 
 }
 
