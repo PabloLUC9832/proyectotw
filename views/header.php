@@ -22,8 +22,8 @@
                     <a class="nav-link text-white" href="">Observaciones</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="">Chat</a>
-                </li>
+                    <a class="nav-link text-white" href="../chat/chat.php">Chat</a>
+                </li>                    
             </ul>
         </div>
     </nav>
