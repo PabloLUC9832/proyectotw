@@ -6,15 +6,16 @@ class Usuario extends DB{
 
     private $nombre;
     private $matricula;
+    private $password;
 
     public function userExists($matricula,$password){
     //public function userExists($nombre,$password){
         $md5pass = md5($password);
 
-        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula AND password = :password');
+        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE Matricula = :matricula AND Pasword = :password');
         //$query = $this->connect()->prepare('SELECT * FROM usuarios WHERE nombre = :nombre AND password = :password');
         //$query->execute(['nombre'=> $nombre, 'password' => $md5pass]);
-        $query->execute(['matricula'=> $matricula, 'password' => $md5pass]);
+        $query->execute(['Matricula'=> $matricula, 'Pasword' => $md5pass]);
 
         if($query->rowCount()){
             return true;
@@ -43,8 +44,8 @@ class Usuario extends DB{
     public function insertarUser($nombre,$matricula,$password){
         $md5pass = md5($password);
 
-        $query = $this->connect()->prepare('INSERT INTO usuarios (nombre,matricula,password) VALUES (:nombre, :matricula, :password)');
-        $query -> execute(['nombre' => $nombre, 'matricula' => $matricula, 'password' => $md5pass]);
+        $query = $this->connect()->prepare('INSERT INTO usuarios (nombre,matricula,pasword) VALUES (:nombre, :matricula, :password)');
+        $query -> execute(['nombre' => $nombre, 'matricula' => $matricula, 'pasword' => $md5pass]);
 
         $query1 = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula');
         //$query = $this->connect()->prepare('SELECT * FROM usuarios WHERE nombre = :nombre');

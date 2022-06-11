@@ -30,7 +30,7 @@
         <form action="" method="POST">
             
             <div class="form-group row">
-                <label for="nombre" class="col-sm-2 col-form-label col-form-label">Nombre</label>
+                <label for="nombre" class="col-sm-2 col-form-label col-form-label">Nombre Completo</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="nombre" placeholder="Nombre" required name="nombre">
                     <!-- <input onkeydown="return /[a-z]/i.test(event.key)"> -->
@@ -43,6 +43,41 @@
                     <input type="text" class="form-control" id="matricula" placeholder="Matrícula" required name="matricula">
                 </div>
             </div>
+
+            <div class="form-group row">
+                    <label for="carrera" class="col-sm-2 col-form-label col-form-label-sm">Carrera</label>
+                    <div class="col-sm-9">
+                        <!-- <input type="text" class="form-control form-control-sm" id="carrera" placeholder="carrera" required name="carrera"> -->
+                        <select class="custom-select custom-select" name="carrera">
+                            <option selected>Selecciona una carrera</option>
+                            <option value="Estadística">Estadística</option>
+                            <option value="Redes y Servicio de Cómputo">Redes y Servicio de Cómputo</option>
+                            <option value="Tecnologías Computacionales">Tecnologías Computacionales</option>
+                            <option value="Ingeniería de Software">Ingeniería de Software</option>
+                            <option value="Ciencias y Técnicas Estadísticas">Ciencias y Técnicas Estadísticas</option>
+                        </select>
+                    </div>
+                </div>
+            
+            <div class="form-group row">
+                <label for="matricula" class="col-sm-2 col-form-label col-form-label">Correo</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="correo" placeholder="Correo" required name="Correo">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                    <label for="Rol" class="col-sm-2 col-form-label col-form-label-sm">Rol</label>
+                    <div class="col-sm-9">
+                        <!-- <input type="text" class="form-control form-control-sm" id="carrera" placeholder="carrera" required name="carrera"> -->
+                        <select class="custom-select custom-select" name="Rol">
+                            <option selected>Seleccione su rol</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Estudiante">Estudiante</option>
+                            <option value="Profesor">Profesor</option>
+                        </select>
+                    </div>
+                </div>
 
             <div class="form-group row">
                 <label for="password" class="col-sm-2 col-form-label col-form-label">Contraseña</label>
