@@ -32,7 +32,7 @@
             <div class="form-group row">
                 <label for="nombre" class="col-sm-2 col-form-label col-form-label">Nombre Completo</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" required name="nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" required name="NombreCompleto">
                     <!-- <input onkeydown="return /[a-z]/i.test(event.key)"> -->
                 </div>
             </div>
@@ -40,7 +40,7 @@
             <div class="form-group row">
                 <label for="matricula" class="col-sm-2 col-form-label col-form-label">Matrícula</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="matricula" placeholder="Matrícula" required name="matricula">
+                    <input type="text" class="form-control" id="matricula" placeholder="Matrícula" required name="Matricula">
                 </div>
             </div>
 
@@ -48,7 +48,7 @@
                     <label for="carrera" class="col-sm-2 col-form-label col-form-label-sm">Carrera</label>
                     <div class="col-sm-9">
                         <!-- <input type="text" class="form-control form-control-sm" id="carrera" placeholder="carrera" required name="carrera"> -->
-                        <select class="custom-select custom-select" name="carrera">
+                        <select class="custom-select custom-select" name="Carrera">
                             <option selected>Selecciona una carrera</option>
                             <option value="Estadística">Estadística</option>
                             <option value="Redes y Servicio de Cómputo">Redes y Servicio de Cómputo</option>
@@ -82,7 +82,7 @@
             <div class="form-group row">
                 <label for="password" class="col-sm-2 col-form-label col-form-label">Contraseña</label>
                 <div class="col-sm-4">
-                    <input type="password" class="form-control" id="password" placeholder="*****" required name="password">
+                    <input type="password" class="form-control" id="password" placeholder="*****" required name="Pasword">
                 </div>
             </div>
 

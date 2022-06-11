@@ -12,9 +12,9 @@ class Usuario extends DB{
     //public function userExists($nombre,$password){
         $md5pass = md5($password);
 
-        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE Matricula = :matricula AND Pasword = :password');
+        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE Matricula = :Matricula AND Pasword = :Pasword');
         //$query = $this->connect()->prepare('SELECT * FROM usuarios WHERE nombre = :nombre AND password = :password');
-        //$query->execute(['nombre'=> $nombre, 'password' => $md5pass]);
+        //$query->execute(['nombre'=> $matricula, 'pasword' => $md5pass]);
         $query->execute(['Matricula'=> $matricula, 'Pasword' => $md5pass]);
 
         if($query->rowCount()){
@@ -34,27 +34,33 @@ class Usuario extends DB{
         //$query ->execute(['nombre' => $nombre]);
 
         foreach ($query as $currentUser){
-            $this->matricula = $currentUser['matricula'];
-            $this->nombre = $currentUser['nombre'];
+            $this->matricula = $currentUser['Matricula'];
+            $this->nombre = $currentUser['NombreCompleto'];
         }
 
 
     }
 
-    public function insertarUser($nombre,$matricula,$password){
-        $md5pass = md5($password);
+    public function insertarUser($matricula,$nombreCompleto,$pasword,$carrera,$correo,$rol){
+        $md5pass = md5($pasword);
 
-        $query = $this->connect()->prepare('INSERT INTO usuarios (nombre,matricula,pasword) VALUES (:nombre, :matricula, :password)');
-        $query -> execute(['nombre' => $nombre, 'matricula' => $matricula, 'pasword' => $md5pass]);
+        $query = $this->connect()->prepare('INSERT INTO usuarios (Matricula,NombreCompleto,Pasword,Carrera,Correo,Rol) VALUES (:Matricula,:NombreCompleto, :Pasword, :Carrera,:Correo,:Rol)');
+        $query -> execute(['Matricula' => $matricula, 
+        'NombreCompleto' => $nombreCompleto, 
+        'Pasword' => $md5pass,
+        'Carrera'=>$carrera,
+        'Correo'=>$correo,
+        'Rol'=>$rol
+        ]);
 
-        $query1 = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula');
+        $query1 = $this->connect()->prepare('SELECT * FROM usuarios WHERE Matricula = :Matricula');
         //$query = $this->connect()->prepare('SELECT * FROM usuarios WHERE nombre = :nombre');
-        $query1 ->execute(['matricula' => $matricula]);
+        $query1 ->execute(['Matricula' => $matricula]);
         //$query ->execute(['nombre' => $nombre]);
 
         foreach ($query1 as $currentUser){
-            $this->matricula = $currentUser['matricula'];
-            $this->nombre = $currentUser['nombre'];
+            $this->matricula = $currentUser['Matricula'];
+            $this->nombre = $currentUser['NombreCompleto'];
         }        
 
          if($query){
@@ -62,7 +68,7 @@ class Usuario extends DB{
         }else{
             return false;
         } 
-
+ 
     }
 
     public function getNombre(){
@@ -83,8 +89,12 @@ class Usuario extends DB{
         // and somewhere later:
         foreach ($data as $row) {
             echo  "<tr>" ;
-            echo  "<td>" . $row['nombre'] . "</td>";
-            echo  "<td>" . $row['matricula'] . "</td>";
+            echo  "<td>" . $row['Matricula'] . "</td>";
+            echo  "<td>" . $row['NombreCompleto'] . "</td>";
+            echo  "<td>" . $row['Pasword'] . "</td>";
+            echo  "<td>" . $row['Carrera'] . "</td>";
+            echo  "<td>" . $row['Correo'] . "</td>";
+            echo  "<td>" . $row['Rol'] . "</td>";
             echo  "</tr>" ;
 
         }

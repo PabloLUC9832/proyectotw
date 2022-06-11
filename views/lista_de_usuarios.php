@@ -33,8 +33,12 @@ $usuario = new Usuario();
     <table class="table table-hover">
       <thead>
         <tr>
+          <th scope="col">Matricula</th>
           <th scope="col">Nombre</th>
-          <th scope="col">Matrícula</th>
+          <th scope="col">Contraseña</th>
+          <th scope="col">Carrera</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Rol</th>
         </tr>
       </thead>
       <tbody>
@@ -45,7 +49,7 @@ $usuario = new Usuario();
         </tr> -->
     
           
-          <?= $usuario->listarUsuarios(); ?>          
+          <?= $usuario->listarUsuarios(); ?>
 
     
       </tbody>
