@@ -1,22 +1,52 @@
 <?php
 
+include_once 'prestamo.php';
+include_once 'usuario_session.php';
+
 /* echo "<pre>";
 print_r($_POST);
 echo "</pre>";
  */
-$nombre = $_POST["nombre"];
-$matricula = $_POST["matricula"];
-$carrera = $_POST["carrera"];
-$horaEntrada = $_POST["horaEntrada"];
-$horaSalida = $_POST["horaSalida"];
-$nombreEquipo = $_POST["nombreEquipo"];
-$descripcionEquipo = $_POST["descripcionEquipo"];
-$nInventario = $_POST["nInventario"];
-$objetivo = $_POST["objetivo"];
-$materia = $_POST["materia"];
-$maestro = $_POST["maestro"];
 
-$flag = true;
+$prestamo = new Prestamo();
+$usuarioSession = new UsuarioSession();
+
+/*$matricula = $_POST['matricula'];
+$horaEntrada = $_POST['horaEntrada'];
+$horaSalida = $_POST['horaSalida'];
+$nombreEquipo = $_POST['nombreEquipo'];
+$objetivo = $_POST['objetivo'];
+$materia = $_POST['materia'];
+$maestro = $_POST['maestro'];
+$fechaActual = $_POST['fecha'];*/
+
+if((isset($_POST['matricula']) && isset($_POST['horaEntrada']) && isset($_POST['horaSalida']) && isset($_POST['nombreEquipo']) && isset($_POST['objetivo']) && isset($_POST['materia']) 
+&& isset($_POST['maestro']) && isset($_POST['fecha'])
+
+)==false){
+  $mensaje = "Ingresa los datos solicitados .";
+  include_once '../views/registro_de_solicitud.php';
+}else{
+    $matricula = $_POST['matricula'];
+    $horaEntrada = $_POST['horaEntrada'];
+    $horaSalida = $_POST['horaSalida'];
+    $nombreEquipo = $_POST['nombreEquipo'];
+    $objetivo = $_POST['objetivo'];
+    $materia = $_POST['materia'];
+    $maestro = $_POST['maestro'];
+    $fechaActual = $_POST['fecha'];
+  
+  if($prestamo->insertarPrestamo($materia, $objetivo, $horaEntrada, $matricula, $horaSalida, $nombreEquipo, $maestro, $fechaActual)==false){
+    $mensaje = "Ha ocurrido un error";
+  }else{
+    //header("location: ../views/home.php");
+    $variable = true;
+    //$mensaje = "guardado";
+
+  }
+}
+
+$flag = $variable;
 
 ?>
 
@@ -43,7 +73,7 @@ $flag = true;
     <?php if($flag): ?>
     
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>¡Éxito!</strong> Tu solicitud ha sido enviada exitosamente. <?= $carrera ?>
+        <strong>¡Éxito!</strong> Tu solicitud ha sido enviada exitosamente. <?= $matricula?>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
