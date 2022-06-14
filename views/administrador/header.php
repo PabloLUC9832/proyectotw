@@ -36,6 +36,9 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="./chat.php">Chat</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="https://proyectotw.herokuapp.com/ws/tareas.wsdl">Mis Pendientes</a>
+                </li>
         </div>
 
 </header>
