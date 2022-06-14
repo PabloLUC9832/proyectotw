@@ -1,8 +1,15 @@
 <?php
 include_once '../../controllers/usuario.php';
 $usuario = new Usuario();
-//print_r($_GET);
-//$usuario->editar($_GET['matricula']);
+//print_r($_POST);
+
+if(isset($_POST['matricula']) && isset($_POST['nombre']) && isset($_POST['carrera']) && isset($_POST['correo']) && isset($_POST['rol'])){
+
+    $usuario->actualizar($_POST['matricula'],$_POST['nombre'],$_POST['carrera'],$_POST['correo'],$_POST['rol']);
+    $msjE = "Actualizado con éxito";
+}else{
+    $msj = "Ingresa los datos solicitados";
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,15 +32,42 @@ $usuario = new Usuario();
     ?>
     <!-- HEADER -->
 
-    <h2 class="text-center h-10">Edición de usuario</h2>
+    <h2 class="text-center">Edición de usuario</h2>
+
+
 
     <div class="container">
+
+        <?php if(isset($msj)): ?>
+
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <strong> <?=  $msj; ?> </strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <?php endif; ?>
+
+        <?php if(isset($msjE)): ?>
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong> <?=  $msjE; ?> </strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <?php endif; ?>        
+
+        <!-- <form action="../../controllers/edit.php" method="POST"> -->
         <form action="" method="POST">
 
             <div class="form-group row">
                 <label for="matricula" class="col-sm-2 col-form-label col-form-label-sm">Matricula</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="matricula" required name="matricula" value="<?= $usuario->setMatricula($_GET['matricula']);?>">
+                <label for="matricula" class="col-sm-2 col-form-label col-form-label-sm"><?= $usuario->setMatricula($_GET['matricula']);?></label>
+                    <input type="text" class="form-control form-control-sm" id="nombre" required name="matricula" value="<?= $usuario->setMatricula($_GET['matricula']);?>" hidden>
                 </div>
             </div>
 
@@ -66,16 +100,21 @@ $usuario = new Usuario();
             </div>
 
             <div class="form-group row">
-                <label for="rol" class="col-sm-2 col-form-label col-form-label-sm">Rol</label>
+                <label for="carrera" class="col-sm-2 col-form-label col-form-label-sm">Rol</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="rol" required name="rol" value="<?= $usuario->setRol($_GET['matricula']);?>">
+                    <select class="custom-select custom-select" name="rol">
+                        <option selected><?= $usuario->setRol($_GET['matricula']);?></option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Profesor">Profesor</option>
+                        <option value="Estudiante">Estudiante</option>
+                    </select>
                 </div>
             </div>            
 
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <a type="button" class="btn btn-warning" href="">Cancelar</a>
+                        <a type="button" class="btn btn-warning" href="./lista_de_usuarios.php">Cancelar</a>
                         <button type="submit" class="btn btn-primary">Actualizar</button>
                     </div>
                 </div>

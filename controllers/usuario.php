@@ -219,6 +219,19 @@ class Usuario extends DB{
         echo $rol;
     }
 
+    public function actualizar($Matricula,$NombreCompleto,$Carrera,$Correo,$Rol){
+
+        $query = $this->connect()->prepare("UPDATE usuarios SET NombreCompleto='$NombreCompleto',Carrera='$Carrera',Correo='$Correo',Rol='$Rol' WHERE Matricula='$Matricula'");
+        $query-> execute();
+        if($query){
+            echo true;
+        }else{
+            echo false;
+        }
+
+    }
+
+
 }
 
 
