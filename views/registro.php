@@ -91,7 +91,9 @@
         </form>
 
         <!-- <p class="mt-5">Ya tienes cuenta. <span><a href="./inicio_de_sesion.php"><b>Inicia Sesión aquí</b></a></span> </p> -->
-        <p class="mt-5">Ya tienes cuenta. <span><a href="../views/index.php"><b>Inicia Sesión aquí</b></a></span> </p>
+        <p class="mt-5">Ya tienes cuenta. <span><a href="../views/inicio_de_sesion.php"><b>Inicia Sesión aquí</b></a></span> o 
+        <span><a href="../views/anonimo/home.php"><b>Ingresa como anónimo.</b></a></span>
+        </p>
 
     </div>
 

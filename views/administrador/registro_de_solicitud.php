@@ -33,14 +33,13 @@
             $dateFormatted =IntlDateFormatter::formatObject($dateTimeObj, 'EEEE dd/MMMM/yyyy ', 'es');
             echo ucwords($dateFormatted);
             ?>
-            <a type="button" class="btn btn-outline-danger btn-sm" href="../inicio_de_sesion.php">Salir</a>
+            <a type="button" class="btn btn-outline-danger btn-sm" href="./home.php">Salir</a>
             
         </div>
 
-
-        
         <div class="container h-100">
-            <form action="../backend/registro_de_solicitud.php" method="POST">
+            <!-- <form action="../../controllers/registro_de_solicitud.php" method="POST"> -->
+            <form action="" method="POST">
                 <div class="form-group row">
                     <label for="usuario" class="col-sm-2 col-form-label col-form-label-sm">Nombre de usuario</label>
                     <div class="col-sm-9">

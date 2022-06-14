@@ -77,7 +77,7 @@ if(!isset($_POST['matricula'])){
 
         </form>
 
-        <p class="mt-5">¿Aún no tienes cuenta? <span><a href="./controllers/registro.php"><b>Registrate aquí</b></a></span>  o  <span><a href="./anonimo/home.php"><b>Ingresa como Anónimo</b></a></span> </p>
+        <p class="mt-5">¿Aún no tienes cuenta? <span><a href="../controllers/registro.php"><b>Registrate aquí</b></a></span>  o  <span><a href="./anonimo/home.php"><b>Ingresa como Anónimo</b></a></span> </p>
 
     </div>
 
