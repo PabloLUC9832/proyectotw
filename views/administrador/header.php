@@ -13,7 +13,7 @@
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Prestamos</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="">Solicitar Prestamos</a>
+                        <a class="dropdown-item" href="./registro_de_solicitud.php">Solicitar Prestamos</a>
                         <a class="dropdown-item" href="./lista_de_equipos.php">Ver Equipos</a>
                     </div>
                 </li>
