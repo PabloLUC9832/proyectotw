@@ -22,7 +22,7 @@
                         Usuarios</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../views/lista_de_usuarios.php">Visualizar usuarios</a>
-                        <a class="dropdown-item" href="#">Registrar nuevo usuario</a>
+                        <a class="dropdown-item" href="../views/RegistroUsuario.php">Registrar nuevo usuario</a>
                         <a class="dropdown-item" href="#">Eliminar usuario</a>
                         <a class="dropdown-item" href="#">Modificar usuario</a>
                     </div>

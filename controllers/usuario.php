@@ -41,6 +41,7 @@ class Usuario extends DB{
 
     }
 
+    //-------------------- Insertar un nuevo usuario ------------------------------------------------------
     public function insertarUser($matricula,$nombreCompleto,$pasword,$carrera,$correo,$rol){
         $md5pass = md5($pasword);
 
@@ -79,6 +80,7 @@ class Usuario extends DB{
         return $this->matricula ;
     }    
 
+    //--------------------- LISTAR USUARIOS ---------------------------
     public function listarUsuarios(){
 
         $nombre = "";
@@ -89,6 +91,9 @@ class Usuario extends DB{
         // and somewhere later:
         foreach ($data as $row) {
             echo  "<tr>" ;
+
+            echo "<td><a href='../views/modificarUsuario.php?matricula= ". $row['Matricula'] ."' class='btn btn-warning btn-sm'>Editar</a></td>";
+
             echo  "<td>" . $row['Matricula'] . "</td>";
             echo  "<td>" . $row['NombreCompleto'] . "</td>";
             echo  "<td>" . $row['Pasword'] . "</td>";
