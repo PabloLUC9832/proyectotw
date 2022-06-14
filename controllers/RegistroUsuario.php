@@ -26,7 +26,7 @@ if((isset($_POST['NombreCompleto']) && isset($_POST['Matricula']) && isset($_POS
   if($usuario->insertarUser($matricula,$nombre,$password,$carrera,$correo,$rol)==false){
     $mensaje = "Ha ocurrido un error";
   }else{
-    header("location: ../views/home.php");
+    header("location: ../views/administrador/home.php");
     //$mensaje = "guardado";
 
   }

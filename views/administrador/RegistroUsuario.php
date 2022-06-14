@@ -33,7 +33,7 @@
 
         <?php endif; ?>
 
-        <form action="../controllers/RegistroUsuario.php" method="POST">
+        <form action="../../controllers/RegistroUsuario.php" method="POST">
             
             <div class="form-group row">
                 <label for="nombre" class="col-sm-2 col-form-label col-form-label">Nombre Completo</label>

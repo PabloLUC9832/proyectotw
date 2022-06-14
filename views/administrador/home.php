@@ -5,7 +5,7 @@ session_start();
 
 
 if ($_SESSION['loggedin'] == false){
-    header('location: ../views/inicio_de_sesion.php');
+    header('location: ../../views/inicio_de_sesion.php');
 }
 ?>
 <!DOCTYPE html>

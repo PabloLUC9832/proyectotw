@@ -7,6 +7,7 @@ if(isset($_POST['matricula']) && isset($_POST['nombre']) && isset($_POST['carrer
 
     $usuario->actualizar($_POST['matricula'],$_POST['nombre'],$_POST['carrera'],$_POST['correo'],$_POST['rol']);
     $msjE = "Actualizado con éxito";
+    header ("location:./lista_de_usuarios.php");
 }else{
     $msj = "Ingresa los datos solicitados";
 }
@@ -33,7 +34,7 @@ if(isset($_POST['matricula']) && isset($_POST['nombre']) && isset($_POST['carrer
     ?>
     <!-- HEADER -->
 
-    <h2 class="text-center">Edición de usuario</h2>
+    <h2 class="text-center">Actualización de usuario</h2>
 
 
 
@@ -61,7 +62,6 @@ if(isset($_POST['matricula']) && isset($_POST['nombre']) && isset($_POST['carrer
 
         <?php endif; ?>        
 
-        <!-- <form action="../../controllers/edit.php" method="POST"> -->
         <form action="" method="POST">
 
             <div class="form-group row">
