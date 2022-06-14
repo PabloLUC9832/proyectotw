@@ -39,19 +39,14 @@ $usuario = new Usuario();
           <th scope="col">Carrera</th>
           <th scope="col">Correo</th>
           <th scope="col">Rol</th>
+          <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
 
-<!--         <tr>
-          <td>Pablo</td>
-          <td>10:50</td>
-        </tr> -->
-    
           
-          <?= $usuario->listarUsuarios(); ?>
+        <?= $usuario->listarUsuariosE(); ?>
 
-    
       </tbody>
     </table>
 

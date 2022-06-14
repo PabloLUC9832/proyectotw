@@ -5,7 +5,6 @@ include_once 'config.php';
 class Usuario extends DB{
 
     private $nombre;
-    private $matricula;
 
     public function userExists($matricula,$password){
         $md5pass = md5($password);
@@ -108,9 +107,9 @@ class Usuario extends DB{
         return $this->nombre ;
     }
 
-    public function getMatricula(){
+/*     public function getMatricula(){
         return $this->matricula ;
-    }
+    } */
 
     public function listarUsuarios(){
 
@@ -145,6 +144,79 @@ class Usuario extends DB{
 
         }
 
+    }
+
+    public function listarUsuariosE(){
+
+        $data = $this->connect()->prepare('SELECT * FROM usuarios');
+        $data ->execute();
+        
+        foreach ($data as $row) {
+            echo  "<tr>" ;
+            echo  "<td>" . $row['Matricula'] . "</td>";
+            echo  "<td>" . $row['NombreCompleto'] . "</td>";
+            echo  "<td>" . $row['Pasword'] . "</td>";
+            echo  "<td>" . $row['Carrera'] . "</td>";
+            echo  "<td>" . $row['Correo'] . "</td>";
+            echo  "<td>" . $row['Rol'] . "</td>";
+            echo  "<td>" . '<a type="button" href="edit.php?matricula=' . $row['Matricula'] . '" class="btn btn-info">Editar</a>' . "</td>";
+            echo  "</tr>" ;
+
+        }
+
+    }
+
+    public function setMatricula($mmatricula){
+
+        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula');
+        $query ->execute(['matricula' => $mmatricula]);
+        $row = $query->fetch(PDO::FETCH_NUM);
+        $matricula = $row[0];
+/*         $nombre = $row[1];
+        $carrera = $row[3];
+        $correo = $row[4];
+        $rol = $row[5]; */
+
+        echo $matricula;
+/*         echo $nombre . "\n";
+        echo $carrera . "\n";
+        echo $correo . "\n";
+        echo $rol . "\n"; */
+    }
+
+    public function setNombre($mmatricula){
+        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula');
+        $query ->execute(['matricula' => $mmatricula]);
+        $row = $query->fetch(PDO::FETCH_NUM);
+        $nombre = $row[1];
+        echo $nombre;
+    }
+
+    public function setCarrera($mmatricula){
+
+        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula');
+        $query ->execute(['matricula' => $mmatricula]);
+        $row = $query->fetch(PDO::FETCH_NUM);
+        $carrera = $row[3];
+        echo $carrera;
+    }
+
+    public function setCorreo($mmatricula){
+
+        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula');
+        $query ->execute(['matricula' => $mmatricula]);
+        $row = $query->fetch(PDO::FETCH_NUM);
+        $correo = $row[4];
+        echo $correo;
+    }
+
+    public function setRol($mmatricula){
+
+        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula');
+        $query ->execute(['matricula' => $mmatricula]);
+        $row = $query->fetch(PDO::FETCH_NUM);
+        $rol = $row[5]; 
+        echo $rol;
     }
 
 }
