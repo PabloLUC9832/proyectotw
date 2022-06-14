@@ -6,19 +6,52 @@ class Usuario extends DB{
 
     private $nombre;
     private $matricula;
-    private $password;
 
     public function userExists($matricula,$password){
-    //public function userExists($nombre,$password){
         $md5pass = md5($password);
 
         $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE Matricula = :Matricula AND Pasword = :Pasword');
-        //$query = $this->connect()->prepare('SELECT * FROM usuarios WHERE nombre = :nombre AND password = :password');
-        //$query->execute(['nombre'=> $matricula, 'pasword' => $md5pass]);
+
         $query->execute(['Matricula'=> $matricula, 'Pasword' => $md5pass]);
 
-        if($query->rowCount()){
+/*         if($query->rowCount()){
             return true;
+        }else{
+            return false;
+        } */
+
+        $row = $query->fetch(PDO::FETCH_NUM);
+        
+        if ($row == true) {
+
+            //se ingresa dentro de row, el numero de columa del campo, inicia desde 0
+            $rol = $row[5];
+            $nombre = $row[1];
+            $_SESSION['rol'] = $rol;
+            //$_SESSION['usuario'] = $nombre;
+
+            
+            switch($_SESSION['rol'] = $rol){
+                case 'Administrador':
+                    echo "admin";
+                    header('location: ../views/administrador/home.php');
+                break;
+
+                case 'Estudiante':
+                    echo "estudiante";
+                    header('location: ../views/estudiante/home.php');
+                break;
+
+                case 'Profesor';
+                    echo "profesor";
+                    header('location: ../views/profesor/home.php');
+                break;
+
+                defaul: 
+                    header('location: ../views/anonimo/home.php');
+
+            }
+
         }else{
             return false;
         }
@@ -53,7 +86,7 @@ class Usuario extends DB{
         'Rol'=>$rol
         ]);
 
-        $query1 = $this->connect()->prepare('SELECT * FROM usuarios WHERE Matricula = :Matricula');
+/*         $query1 = $this->connect()->prepare('SELECT * FROM usuarios WHERE Matricula = :Matricula');
         //$query = $this->connect()->prepare('SELECT * FROM usuarios WHERE nombre = :nombre');
         $query1 ->execute(['Matricula' => $matricula]);
         //$query ->execute(['nombre' => $nombre]);
@@ -61,7 +94,7 @@ class Usuario extends DB{
         foreach ($query1 as $currentUser){
             $this->matricula = $currentUser['Matricula'];
             $this->nombre = $currentUser['NombreCompleto'];
-        }        
+        }         */
 
          if($query){
             return true;
@@ -72,21 +105,18 @@ class Usuario extends DB{
     }
 
     public function getNombre(){
-        return $this->nombre ;         
+        return $this->nombre ;
     }
 
     public function getMatricula(){
         return $this->matricula ;
-    }    
+    }
 
     public function listarUsuarios(){
 
-        $nombre = "";
-        $matricula = "";
-
         $data = $this->connect()->prepare('SELECT * FROM usuarios');
         $data ->execute();
-        // and somewhere later:
+
         foreach ($data as $row) {
             echo  "<tr>" ;
             echo  "<td>" . $row['Matricula'] . "</td>";
@@ -101,22 +131,21 @@ class Usuario extends DB{
 
     }
 
-    public function listarUsuarios2(){
+    public function listarEquipos(){
 
-        $nombre = "";
-        $matricula = "";
-
-        $data = $this->connect()->prepare('SELECT * FROM usuarios');
+        $data = $this->connect()->prepare('SELECT * FROM equipos ORDER BY NumeroInventario ASC');
         $data ->execute();
-        // and somewhere later:
+
         foreach ($data as $row) {
-            //echo  $row['matricula'];
-            echo  "<td>" . $row['matricula'] . "</td>";;
+            echo  "<tr>" ;
+            echo  "<td>" . $row['NumeroInventario'] . "</td>";
+            echo  "<td>" . $row['NombreDelEquipo'] . "</td>";
+            echo  "<td>" . $row['Descripcion'] . "</td>";
+            echo  "</tr>" ;
+
         }
 
     }
-
-
 
 }
 

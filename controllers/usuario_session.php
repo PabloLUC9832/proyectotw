@@ -12,8 +12,6 @@ class UsuarioSession{
 
     public function getCurrentUser(){
         $_SESSION['usuario'];
-        //$_SESSION['nombre'];
-        //$_SESSION['matricula'];
     }
 
     public function closeSession(){

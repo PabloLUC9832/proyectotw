@@ -1,3 +1,21 @@
+<!-- https://youtu.be/LL66QTP3txE -->
+<?php
+//$matricula = $_POST['matricula'];
+
+//session_start();
+//$_SESSION['usuario'] = $matricula;
+//echo $_SESSION['usuario'];
+
+if(!isset($_POST['matricula'])){
+    $msj = "Ingresa los datos solicitados.";
+}else{
+    session_start();
+    $_SESSION['usuario'] = $matricula;
+    $_SESSION['loggedin'] = true;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,7 +34,18 @@
 
     <div class="container m-5">
 
-        <form action="" method="POST">
+        <form action="../controllers/inicio_de_sesion.php" method="POST">
+        <!-- <form action="" method="POST"> -->
+            <?php if(isset($msj)): ?>
+
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong> <?=  $msj; ?> </strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <?php endif; ?>
 
             <?php if(isset($errorLogin)): ?>
 
@@ -48,7 +77,7 @@
 
         </form>
 
-        <p class="mt-5">¿Aún no tienes cuenta? <span><a href="../controllers/registro.php"><b>Registrate aquí</b></a></span> </p>
+        <p class="mt-5">¿Aún no tienes cuenta? <span><a href="./controllers/registro.php"><b>Registrate aquí</b></a></span>  o  <span><a href="./anonimo/home.php"><b>Ingresa como Anónimo</b></a></span> </p>
 
     </div>
 

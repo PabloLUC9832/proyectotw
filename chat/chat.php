@@ -78,11 +78,7 @@ function onkey(event){ if(event.keyCode==13){ send(); } }
 </head>
 <body onload="init()">
     
-    <!-- HEADER -->
-    <?php
-    include '../views/header.php';
-    ?>
-    <!-- HEADER -->    
+
     <h2 class="text-center">¡Bienvenido al Chat UV!</h2>
     
     <div class="border" style="height: 550px; width: 100%; background-color: #edf2f4;">
@@ -101,7 +97,7 @@ function onkey(event){ if(event.keyCode==13){ send(); } }
 
 
     <input id="msg" class="w-75 p-1" type="text" onkeypress="onkey(event)" required>
-    <button class="btn btn-primary" style="width:20% ;" onclick="send()">Enviar</button>
+    <button class="btn btn-primary" style="width:18% ;" onclick="send()">Enviar</button>
     <button class="btn btn-danger " onclick="quit()">Salir</button>
     <!-- <button class="btn btn-warning " onclick="reconnect()">Reconectar</button> -->
 
