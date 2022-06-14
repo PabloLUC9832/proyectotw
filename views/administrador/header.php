@@ -26,7 +26,7 @@
                     <a class="nav-link text-white" href="">Bitácora</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="">Observaciones</a>
+                    <a class="nav-link text-white" href="./observaciones.php">Observaciones</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="./chat.php">Chat</a>
