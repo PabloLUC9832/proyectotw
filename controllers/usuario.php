@@ -160,6 +160,7 @@ class Usuario extends DB{
             echo  "<td>" . $row['Correo'] . "</td>";
             echo  "<td>" . $row['Rol'] . "</td>";
             echo  "<td>" . '<a type="button" href="edit.php?matricula=' . $row['Matricula'] . '" class="btn btn-info">Editar</a>' . "</td>";
+            echo  "<td>" . '<a type="button" href="delete.php?matricula=' . $row['Matricula'] . '" class="btn btn-info">Eliminar</a>' . "</td>";
             echo  "</tr>" ;
 
         }
@@ -230,6 +231,19 @@ class Usuario extends DB{
         }
 
     }
+
+
+    public function eliminar($Matricula){
+
+        $query = $this->connect()->prepare("DELETE FROM usuarios WHERE Matricula='$Matricula'");
+        $query-> execute();
+        if($query){
+            echo true;
+        }else{
+            echo false;
+        }
+
+    }    
 
 
 }
