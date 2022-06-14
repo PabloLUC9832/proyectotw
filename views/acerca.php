@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
+    <title>Lista de Usuarios</title>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
@@ -13,45 +13,61 @@
 </head>
 <body>
 
-<h1 class="text-center">Inicio de Sesión</h1>
-
-    <div class="container m-5">
-
-        <form action="" method="POST">
-
-            <?php if(isset($errorLogin)): ?>
-
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>:(</strong> <?=  $errorLogin; ?> 
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            <?php endif; ?>
+    <!-- HEADER -->
+    <?php
+    include './header.php';
+    ?>
+    <!-- HEADER -->
 
 
+<main>
+    <style>
+        .div1 {margin: 50px};
 
-            <div class="form-group row">
-                <label for="matricula" class="col-sm-2 col-form-label col-form-label">Matrícula</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="matricula" placeholder="matrícula" required name="matricula">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="password" class="col-sm-2 col-form-label col-form-label">Contraseña</label>
-                <div class="col-sm-4">
-                    <input type="password" class="form-control" id="password" placeholder="*****" required name="password">
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary mt-5">Iniciar sesión</button>
-
-        </form>
-
-        <p class="mt-5">¿Aún no tienes cuenta? <span><a href="../controllers/registro.php"><b>Registrate aquí</b></a></span> </p>
-
+        table{
+            max-width: 800px;
+            table-layout: fixed;
+            display: block;
+        };
+    </style>
+    <br>
+    <h2 class="text-center">Acerca de nosotros</h2>
+    <br>
+    <p style="color:DimGray"  class="text-center">Aquí encontrarás respuesta a las dudas que tengas sobre nuestros servicios</p>
+    <div>
+        <div class=div1>
+            <h3 style="color:Green" class="font-italic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¿Quienes somos?</h3>
+            <p style="text-align:justify">Nuestro sitio está enfocado en ofrecer la facilidad de solicitar un espacio para uso de los equipos del centro de cómputo (CC) a los alumnos y académicos de nuestra facultad de una manera anticipada, cómoda y pudiendo ser  solicitado en línea, ahorrando tiempo y evitanto el traslado previo para tener un turno y sin esperar a que se encuentre algún equipo disponible si se solicita al momento de querer acceder a él.</p>
+        </div>
+        <div class=div1>
+            <h3 style="color:Green" class="font-italic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nuestro Objetivo</h3>
+            <p style="text-align:justify">Que los alumnos y profesores de la FEI no tengan que preocuparse por encontrar equipos disponibles, pudiendo apartar alguno en el horario y fecha que él mismo seleccione.</p>
+        </div>
+        <div class=div1>
+        <table class="table w 100" width="10%">
+      <thead>
+        <tr>
+          <th class="text-center" scope="col" style="color:Green" >Misión</th>
+          <th class="text-center" scope="col" style="color:Green" >Visión</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td width="700px" class="text-center">Que los y las alumnxs tengan la posibiliad de acceder a los equipos de cómputo disponibles sin complicaciones y de manera ordenada.</td>
+          <td width="700px" class="text-center">Nuestra visión es la de un CC con ambiente calmado, ordenado y ameno, en el que los alumnos se sientan a gusto y tranquilos, diferente al ambiente común del día a día en el que hay estrés, prisa y presión.</td>
+        </tr>
+      </tbody>
+    </table>
+        </div>
+        <div class=div1>
+            <h3 style="color:Green" class="font-italic text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contacto</h3>
+            <p style="text-align:justify" class="text-center">¿Tienes más dudas o sugerencias?. No dudes en comunicarte con nosotros: </p>
+            <li class="text-center">WhatsApp: +52 228-123-4567</li>
+            <li class="text-center">Correo: contacto@spec.uv.mx</li>
+        </div>
     </div>
+    
+</main>
 
 </body>
 </html>
