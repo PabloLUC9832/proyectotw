@@ -1,9 +1,6 @@
 <?php
 
-/* echo "<pre>";
-print_r($_POST);
-echo "</pre>";
- */
+
 $nombre = $_POST["nombre"];
 $matricula = $_POST["matricula"];
 $carrera = $_POST["carrera"];

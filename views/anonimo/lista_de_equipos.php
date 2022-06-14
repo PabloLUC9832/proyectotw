@@ -1,6 +1,6 @@
 <?php 
-include_once '../../controllers/usuario.php';
-$usuario = new Usuario();
+include_once '../../controllers/equipo.php';
+$equipo = new Equipo();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,7 +38,7 @@ $usuario = new Usuario();
       <tbody>
 
             
-          <?= $usuario->listarEquipos(); ?>
+          <?= $equipo->listarEquipos(); ?>
 
     
       </tbody>

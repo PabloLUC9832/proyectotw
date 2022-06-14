@@ -9,29 +9,25 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="./acerca.php">Acerca de Nosotros</a>
                 </li>
-                <li class="nav-item dropdown">
+                <!--li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Prestamos</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="./registro_de_solicitud.php">Solicitar Prestamos</a>
+                        <a class="dropdown-item" href="./registro_de_prestamo.php">Solicitar Prestamo</a>
                         <a class="dropdown-item" href="./lista_de_equipos.php">Ver Equipos</a>
                     </div>
+                </li-->
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./lista_de_equipos.php">Equipos</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Usuarios</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="./lista_de_usuarios.php">Visualizar usuarios</a>
-                        <a class="dropdown-item" href="../views/RegistroUsuario.php">Registrar nuevo usuario</a>
-                        <a class="dropdown-item" href="#">Eliminar usuario</a>
-                        <a class="dropdown-item" href="#">Modificar usuario</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./lista_de_usuarios.php">Usuarios</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="">Bitácora</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="">Observaciones</a>
+                    <a class="nav-link text-white" href="./observaciones.php">Observaciones</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="./chat.php">Chat</a>

@@ -29,6 +29,12 @@ $usuario = new Usuario();
     <h1 class="text-center">Lista de Usuarios</h1>
 
     <p class="text-left">En la siguiente lista podrás ver la información básica de los usuarios registrados.</p>
+    
+    <div class="col-md-12 text-center">
+        <a type="button" class="btn btn-info" href="./RegistroUsuario.php">Registrar Nuevo Usuario</a>
+        <a type="button" class="btn btn-info" href="./lista_de_solicitudesUsuario.php">lista de solicitudes de usuarios</a>
+        <br><br>
+    </div>
 
     <table class="table table-hover">
       <thead>

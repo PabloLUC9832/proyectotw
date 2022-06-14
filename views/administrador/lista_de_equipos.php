@@ -1,6 +1,8 @@
 <?php 
-include_once '../../controllers/usuario.php';
-$usuario = new Usuario();
+
+include_once '../../controllers/equipo.php';
+
+$equipo = new Equipo();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,6 +29,11 @@ $usuario = new Usuario();
 
     <p class="text-left">En la siguiente lista podrás ver la información de los equipos de cómputo.</p>
 
+    <div class="col-md-12 text-center">
+        <a type="button" class="btn btn-info" href="./registro_de_prestamo.php">Solicitar un Prestamo</a>
+        <br><br>
+    </div>
+
     <table class="table table-hover">
       <thead>
         <tr>
@@ -38,7 +45,7 @@ $usuario = new Usuario();
       <tbody>
 
             
-          <?= $usuario->listarEquipos(); ?>
+          <?= $equipo->listarEquipos(); ?>
 
     
       </tbody>

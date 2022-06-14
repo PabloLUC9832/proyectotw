@@ -1,7 +1,7 @@
 <?php
 
 include_once 'usuario.php';
-
+//include_once '../views/registro.php';
 //include_once 'usuario_session.php';
 
 
@@ -13,8 +13,7 @@ if((isset($_POST['NombreCompleto']) && isset($_POST['Matricula']) && isset($_POS
 && isset($_POST['Pasword']) 
 
 )==false){
-  $mensaje = "Ingresa los datos solicitados .";
-  include_once '../views/administrador/RegistroUsuario.php';
+  include_once '../views/registroSolicitudUsuario.php';
 }else{
   $nombre = $_POST['NombreCompleto'];
   $matricula = $_POST['Matricula'];
@@ -23,11 +22,10 @@ if((isset($_POST['NombreCompleto']) && isset($_POST['Matricula']) && isset($_POS
   $rol = $_POST['Rol'];
   $password = $_POST['Pasword'];
   
-  if($usuario->insertarUser($matricula,$nombre,$password,$carrera,$correo,$rol)==false){
+  if($usuario->insertarSolicitudUsuario($matricula,$nombre,$password,$carrera,$correo,$rol)==false){
     $mensaje = "Ha ocurrido un error";
   }else{
-    header("location: ../views/administrador/home.php");
-    //$mensaje = "guardado";
+    header("location: ../views/inicio_de_sesion.php");
 
   }
 }

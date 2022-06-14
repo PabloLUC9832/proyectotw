@@ -6,6 +6,7 @@ class Usuario extends DB{
 
     private $nombre;
 
+//----------------------- CHECAR SI EXISTE UN USUARIO EN LA BD -------------------------------
     public function userExists($matricula,$password){
         $md5pass = md5($password);
 
@@ -13,11 +14,6 @@ class Usuario extends DB{
 
         $query->execute(['Matricula'=> $matricula, 'Pasword' => $md5pass]);
 
-/*         if($query->rowCount()){
-            return true;
-        }else{
-            return false;
-        } */
 
         $row = $query->fetch(PDO::FETCH_NUM);
         
@@ -27,9 +23,7 @@ class Usuario extends DB{
             $rol = $row[5];
             $nombre = $row[1];
             $_SESSION['rol'] = $rol;
-            //$_SESSION['usuario'] = $nombre;
 
-            
             switch($_SESSION['rol'] = $rol){
                 case 'Administrador':
                     echo "admin";
@@ -58,13 +52,9 @@ class Usuario extends DB{
     }
 
     public function setUser($matricula){
-    //public function setUser($nombre){
         
         $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula');
-        //$query = $this->connect()->prepare('SELECT * FROM usuarios WHERE nombre = :nombre');
         $query ->execute(['matricula' => $matricula]);
-        //$query ->execute(['nombre' => $nombre]);
-
         foreach ($query as $currentUser){
             $this->matricula = $currentUser['Matricula'];
             $this->nombre = $currentUser['NombreCompleto'];
@@ -73,6 +63,7 @@ class Usuario extends DB{
 
     }
 
+// ---------------------------- INSERTAR UN USUARIO EN LA BD (USUARIO CON ACCESO AL SISTEMA) -------------------------------------------
     public function insertarUser($matricula,$nombreCompleto,$pasword,$carrera,$correo,$rol){
         $md5pass = md5($pasword);
 
@@ -84,16 +75,6 @@ class Usuario extends DB{
         'Correo'=>$correo,
         'Rol'=>$rol
         ]);
-
-/*         $query1 = $this->connect()->prepare('SELECT * FROM usuarios WHERE Matricula = :Matricula');
-        //$query = $this->connect()->prepare('SELECT * FROM usuarios WHERE nombre = :nombre');
-        $query1 ->execute(['Matricula' => $matricula]);
-        //$query ->execute(['nombre' => $nombre]);
-
-        foreach ($query1 as $currentUser){
-            $this->matricula = $currentUser['Matricula'];
-            $this->nombre = $currentUser['NombreCompleto'];
-        }         */
 
          if($query){
             return true;
@@ -107,45 +88,7 @@ class Usuario extends DB{
         return $this->nombre ;
     }
 
-/*     public function getMatricula(){
-        return $this->matricula ;
-    } */
-
-    public function listarUsuarios(){
-
-        $data = $this->connect()->prepare('SELECT * FROM usuarios');
-        $data ->execute();
-
-        foreach ($data as $row) {
-            echo  "<tr>" ;
-            echo  "<td>" . $row['Matricula'] . "</td>";
-            echo  "<td>" . $row['NombreCompleto'] . "</td>";
-            echo  "<td>" . $row['Pasword'] . "</td>";
-            echo  "<td>" . $row['Carrera'] . "</td>";
-            echo  "<td>" . $row['Correo'] . "</td>";
-            echo  "<td>" . $row['Rol'] . "</td>";
-            echo  "</tr>" ;
-
-        }
-
-    }
-
-    public function listarEquipos(){
-
-        $data = $this->connect()->prepare('SELECT * FROM equipos ORDER BY NumeroInventario ASC');
-        $data ->execute();
-
-        foreach ($data as $row) {
-            echo  "<tr>" ;
-            echo  "<td>" . $row['NumeroInventario'] . "</td>";
-            echo  "<td>" . $row['NombreDelEquipo'] . "</td>";
-            echo  "<td>" . $row['Descripcion'] . "</td>";
-            echo  "</tr>" ;
-
-        }
-
-    }
-
+// ------------------------ LISTAR LOS USUARIOS QUE ESTAN LA BD --------------------------------------
     public function listarUsuariosE(){
 
         $data = $this->connect()->prepare('SELECT * FROM usuarios');
@@ -167,22 +110,14 @@ class Usuario extends DB{
 
     }
 
+
     public function setMatricula($mmatricula){
 
         $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula');
         $query ->execute(['matricula' => $mmatricula]);
         $row = $query->fetch(PDO::FETCH_NUM);
         $matricula = $row[0];
-/*         $nombre = $row[1];
-        $carrera = $row[3];
-        $correo = $row[4];
-        $rol = $row[5]; */
-
         echo $matricula;
-/*         echo $nombre . "\n";
-        echo $carrera . "\n";
-        echo $correo . "\n";
-        echo $rol . "\n"; */
     }
 
     public function setNombre($mmatricula){
@@ -220,6 +155,7 @@ class Usuario extends DB{
         echo $rol;
     }
 
+// -------------------------- ACTUALIZAR DATOS DE UN USUARIO ESPECIFICO --------------------------------
     public function actualizar($Matricula,$NombreCompleto,$Carrera,$Correo,$Rol){
 
         $query = $this->connect()->prepare("UPDATE usuarios SET NombreCompleto='$NombreCompleto',Carrera='$Carrera',Correo='$Correo',Rol='$Rol' WHERE Matricula='$Matricula'");
@@ -232,7 +168,7 @@ class Usuario extends DB{
 
     }
 
-
+// --------------------------- ELIMINAR UN USUARIO ESPECIFICO DE LA BD ----------------------------------------
     public function eliminar($Matricula){
 
         $query = $this->connect()->prepare("DELETE FROM usuarios WHERE Matricula='$Matricula'");
@@ -243,7 +179,28 @@ class Usuario extends DB{
             echo false;
         }
 
-    }    
+    }
+    
+// --------------------------- INSERTAR REGISTRO SOLICITUD USUARIO (USUARIO SIN ACCESO AL SISTEMA TODAVIA) -----------------------
+    public function insertarSolicitudUsuario($matricula,$nombreCompleto,$pasword,$carrera,$correo,$rol){
+        $md5pass = md5($pasword);
+
+        $query = $this->connect()->prepare('INSERT INTO solicitudesregistro (Matricula,NombreCompleto,Pasword,Carrera,Correo,Rol) VALUES (:Matricula,:NombreCompleto, :Pasword, :Carrera,:Correo,:Rol)');
+        $query -> execute(['Matricula' => $matricula, 
+        'NombreCompleto' => $nombreCompleto, 
+        'Pasword' => $md5pass,
+        'Carrera'=>$carrera,
+        'Correo'=>$correo,
+        'Rol'=>$rol
+        ]);
+
+         if($query){
+            return true;
+        }else{
+            return false;
+        } 
+ 
+    }
 
 
 }
