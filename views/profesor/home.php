@@ -21,13 +21,12 @@ if ($_SESSION['loggedin'] == false){
 <body>
 
     <!-- HEADER -->
-    <!-- BRYAN-->
     <?php
     include 'header.php';
     ?>
     <!-- HEADER -->
+    <h6 class="text-right"> Bienvenido <span> <b> <?php echo htmlspecialchars($_SESSION['usuario']); ?></b> </span> </h6>
 
-    <h6 class="text-right"> Bienvenido <span> <b> <?php echo htmlspecialchars($_SESSION["usuario"]); ?></b> </span> </h6>
     <div class="text-right">
         <a class="btn btn-outline-danger" href="../../controllers/logout.php" role="button">Cerrar Sesión</a>
     </div>
