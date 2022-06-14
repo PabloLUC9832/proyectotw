@@ -33,6 +33,8 @@ $usuario = new Usuario();
     <table class="table table-hover">
       <thead>
         <tr>
+          
+          <!--th scope="col">Editar</th-->
           <th scope="col">Matricula</th>
           <th scope="col">Nombre</th>
           <th scope="col">Contraseña</th>
@@ -43,14 +45,7 @@ $usuario = new Usuario();
       </thead>
       <tbody>
 
-<!--         <tr>
-          <td>Pablo</td>
-          <td>10:50</td>
-        </tr> -->
-    
-          
           <?= $usuario->listarUsuarios(); ?>
-
     
       </tbody>
     </table>
