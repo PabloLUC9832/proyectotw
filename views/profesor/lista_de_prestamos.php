@@ -34,13 +34,14 @@ $prestamo = new Prestamo();
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">Matricula</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Contraseña</th>
-          <th scope="col">Carrera</th>
-          <th scope="col">Correo</th>
-          <th scope="col">Rol</th>
-          <th scope="col">Acciones</th>
+        <th scope="col">Matricula</th>
+          <th scope="col">Materia</th>
+          <th scope="col">Maestro</th>
+          <th scope="col">Objetivo</th>
+          <th scope="col">Equipo</th>
+          <th scope="col">Hora Entrada</th>
+          <th scope="col">Hora Salida</th>
+          <th scope="col">Fecha</th>
         </tr>
       </thead>
       <tbody>
