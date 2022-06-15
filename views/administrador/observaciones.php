@@ -14,7 +14,7 @@ function get_public_ip(){
     $observacion->insertarObservacion($_POST['equipo'],$_POST['ip'],$_POST['observacion']);
 
   }else{
-    $msj =  "Ingresa los datos solicitados.";
+    $msj =  "Ingresa tu observacion u opinion de un equipo de computo.";
   }
 
 
