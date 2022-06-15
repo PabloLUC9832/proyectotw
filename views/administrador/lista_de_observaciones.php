@@ -1,6 +1,6 @@
 <?php 
-include_once '../../controllers/usuario.php';
-$usuario = new Usuario();
+include_once '../../controllers/observacion.php';
+$observacion = new Observacion();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,7 +25,7 @@ $usuario = new Usuario();
 
 <main>
 
-    <h1 class="text-center">Lista de equipos</h1>
+    <h1 class="text-center">Lista de observaciones</h1>
     <div class="text-right">
         <a type="button" class="btn btn-outline-danger btn-sm" href="./home.php">Salir</a>
     </div>
@@ -42,7 +42,7 @@ $usuario = new Usuario();
     <tbody>
 
             
-        <?= $usuario->listarObservaciones(); ?>
+        <?= $observacion->listarObservaciones(); ?>
 
 
     </tbody>

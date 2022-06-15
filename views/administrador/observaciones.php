@@ -12,7 +12,7 @@ function get_public_ip(){
   if(isset($_POST['equipo']) && isset($_POST['ip']) && isset($_POST['observacion'])){
 
     $observacion->insertarObservacion($_POST['equipo'],$_POST['ip'],$_POST['observacion']);
-
+    header("location: ./lista_de_observaciones.php");
   }else{
     $msj =  "Ingresa tu observacion u opinion de un equipo de computo.";
   }
