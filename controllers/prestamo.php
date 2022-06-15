@@ -28,7 +28,26 @@ class Prestamo extends DB{
  
     }
 
+    public function listarPrestamos(){
+        $fecha = date('d-m-Y');
+        $data = $this->connect()->prepare('SELECT * FROM prestamos WHERE FechaActual = "' . $fecha . '"');
+        $data ->execute();
 
+        foreach ($data as $row) {
+            echo  "<tr>" ;
+            echo  "<td>" . $row['MatriculaUsuario'] . "</td>";
+            echo  "<td>" . $row['Materia'] . "</td>";
+            echo  "<td>" . $row['Maestro'] . "</td>";
+            echo  "<td>" . $row['ObjetivoPrestamo'] . "</td>";
+            echo  "<td>" . $row['NombreDelEquipo'] . "</td>";
+            echo  "<td>" . $row['HoraEntrada'] . "</td>";
+            echo  "<td>" . $row['HoraSalida'] . "</td>";
+            echo  "<td>" . $row['FechaActual'] . "</td>";
+            echo  "</tr>" ;
+
+        }        
+
+    }
 
 
 

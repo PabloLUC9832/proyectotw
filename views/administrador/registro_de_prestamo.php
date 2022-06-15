@@ -19,13 +19,11 @@ if(  isset($_POST['matricula']) && isset($_POST['horaEntrada']) && isset($_POST[
                                 $_POST['maestro'] , 
                                 date('d-m-Y')
                                 );
-    //header("location: ./lista_de_equipos.php");
+    header("location: ./lista_de_prestamoo.php");
 
 }else{
     $msj = "Ingresa los datos solicitados. ";
 }
-
-print_r($_POST);
 
 ?>
 

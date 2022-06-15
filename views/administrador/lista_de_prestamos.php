@@ -1,6 +1,6 @@
 <?php 
-include_once '../../controllers/usuario.php';
-$usuario = new Usuario();
+include_once '../../controllers/prestamo.php';
+$prestamo = new Prestamo();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,16 +27,10 @@ $usuario = new Usuario();
 
 <main>
 
-    <h1 class="text-center">Lista de Prestamos</h1>
+    <h1 class="text-center">Lista de Préstamos</h1>
 
     <p class="text-left">En la siguiente lista podrás ver la información básica de los prestamos registrados.</p>
     
-    <div class="col-md-12 text-center">
-        <a type="button" class="btn btn-info" href="./RegistroUsuario.php">Registrar Nuevo Usuario</a>
-        <a type="button" class="btn btn-info" href="./lista_de_solicitudesUsuario.php">lista de solicitudes de usuarios</a>
-        <br><br>
-    </div>
-
     <table class="table table-hover">
       <thead>
         <tr>
@@ -52,7 +46,7 @@ $usuario = new Usuario();
       <tbody>
 
           
-        <?= $usuario->listarUsuariosE(); ?>
+        <?= $prestamo->listarPrestamos(); ?>
 
       </tbody>
     </table>
