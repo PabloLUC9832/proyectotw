@@ -32,7 +32,7 @@ $equipo = new Equipo();
 
     <div class="col-md-12 text-center">
         <a type="button" class="btn btn-info" href="./registro_de_prestamo.php">Solicitar un Prestamo</a>
-        <a type="button" class="btn btn-info" href="#">Lista de Prestamos</a>
+        <a type="button" class="btn btn-info" href="./lista_de_prestamos.php">Lista de Prestamos</a>
         <br><br>
     </div>
 
