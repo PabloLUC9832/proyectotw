@@ -1,7 +1,6 @@
 <?php 
-
-include_once '../../controllers/observacion.php';
-$observacion = new Observacion();
+include_once '../../controllers/usuario.php';
+$usuario = new Usuario();
 
 function get_public_ip(){
     $externalContent = file_get_contents('http://checkip.dyndns.com/');
@@ -10,9 +9,9 @@ function get_public_ip(){
     return $externalIp;
   }
   if(isset($_POST['equipo']) && isset($_POST['ip']) && isset($_POST['observacion'])){
-
-    $observacion->insertarObservacion($_POST['equipo'],$_POST['ip'],$_POST['observacion']);
-
+    //$usuario->insertarObservacion(0,$_POST['equipo'],$_POST['ip'],$_POST['observacion']);
+    $usuario->insertarObservacion($_POST['equipo'],$_POST['ip'],$_POST['observacion']);
+    header ("location:./lista_de_observaciones.php");
   }else{
     $msj =  "Ingresa los datos solicitados.";
   }
@@ -63,7 +62,7 @@ function get_public_ip(){
                     <label for="carrera" class="col-sm-2 col-form-label col-form-label-sm">Equipo</label>
                     <div class="col-sm-9">
                         <select class="custom-select custom-select" name="equipo">
-                            <?= $observacion->nombreEquipos();?>
+                            <?= $usuario->nombreEquipos();?>
                         </select>
                     </div>
                 </div>

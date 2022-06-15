@@ -34,7 +34,23 @@ class Observacion extends DB{
             return false;
         } 
  
-    }    
+    }
+    
+    public function listarObservaciones(){
+
+        $data = $this->connect()->prepare('SELECT * FROM observaciones ORDER BY ID ASC');
+        $data ->execute();
+
+        foreach ($data as $row) {
+            echo  "<tr>" ;
+            echo  "<td>" . $row['NombreDelEquipo'] . "</td>";
+            echo  "<td>" . $row['IP'] . "</td>";
+            echo  "<td>" . $row['Observacion'] . "</td>";
+            echo  "</tr>" ;
+
+        }
+
+    }
 
 }
 
