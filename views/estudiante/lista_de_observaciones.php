@@ -1,6 +1,6 @@
 <?php 
-include_once '../../controllers/usuario.php';
-$usuario = new Usuario();
+include_once '../../controllers/observacion.php';
+$observacion = new Observacion();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -42,7 +42,7 @@ $usuario = new Usuario();
     <tbody>
 
             
-        <?= $usuario->listarObservaciones(); ?>
+        <?= $observacion->listarObservaciones(); ?>
 
 
     </tbody>

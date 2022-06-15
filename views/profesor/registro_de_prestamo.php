@@ -1,31 +1,41 @@
-<?php 
+<?php
+
+include_once '../../controllers/usuario.php';
 include_once '../../controllers/observacion.php';
+include_once '../../controllers/prestamo.php';
 
+$prestamo = new Prestamo();
 $observacion = new Observacion();
+$usuario = new Usuario();
 
-function get_public_ip(){
-    $externalContent = file_get_contents('http://checkip.dyndns.com/');
-    preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
-    $externalIp = $m[1];
-    return $externalIp;
-  }
-  if(isset($_POST['equipo']) && isset($_POST['ip']) && isset($_POST['observacion'])){
-    //$usuario->insertarObservacion(0,$_POST['equipo'],$_POST['ip'],$_POST['observacion']);
-    $observacion->insertarObservacion($_POST['equipo'],$_POST['ip'],$_POST['observacion']);
-    header ("location:./lista_de_observaciones.php");
-  }else{
-    $msj =  "Ingresa los datos solicitados.";
-  }
+if(  isset($_POST['matricula']) && isset($_POST['horaEntrada']) && isset($_POST['horaSalida']) && isset($_POST['equipo']) && isset($_POST['objetivo']) && isset($_POST['materia']) && isset($_POST['maestro']) && isset($_POST['fecha']) ){
+    //$prestamo->insertarPrestamo($_POST['materia'] , $_POST['objetivo'], $_POST['horaEntrada'] , $_POST['matricula'] , $_POST['horaSalida'] , $_POST['equipo'] , $_POST['maestro'] , $_POST['fecha']  );
+    $prestamo->insertarPrestamo($_POST['materia'] , 
+                                $_POST['objetivo'],
+                                $_POST['horaEntrada'] ,
+                                $_POST['horaSalida'] ,
+                                $_POST['matricula'] ,
+                                $_POST['equipo'] , 
+                                $_POST['maestro'] , 
+                                date('d-m-Y')
+                                );
+    header("location: ./lista_de_prestamoo.php");
 
+}else{
+    $msj = "Ingresa los datos solicitados. ";
+}
 
 ?>
+
+<!-- Añadirlo al php.ini: extension=php_intl.dll -->
+<!-- https://unicode-org.github.io/icu/userguide/format_parse/datetime/ -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Observaciones</title>
+    <title>Registro de Prestamo</title>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
@@ -41,47 +51,84 @@ function get_public_ip(){
     ?>
     <!-- HEADER -->
 
-    <h2 class="text-center">Observaciones</h2>
-    <label>En este apartado puedes realizar observaciones sobre los equipos de cómputo.</label>
-
     <main>
+
+        <h2 class="text-center">Registro de Solicitud para Préstamo de Equipo de Cómputo</h2>
+
+        <div class="text-right">
+            <?php 
+            date_default_timezone_set( 'America/Mexico_City' );
+            $dateTimeObj = new DateTime('now', new DateTimeZone('America/Mexico_City'));
+            $dateFormatted =IntlDateFormatter::formatObject($dateTimeObj, 'EEEE dd/MMMM/yyyy ', 'es');
+            echo ucwords($dateFormatted);
+            ?>
+            <a type="button" class="btn btn-outline-danger btn-sm" href="../inicio_de_sesion.php">Salir</a>
+            
+        </div>
+
+
+        
         <div class="container h-100">
             <form action="" method="POST">
 
-                 <?php if(isset($msj)): ?>
 
-                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    <strong> <?=  $msj; ?> </strong>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="form-group row">
+                    <label for="matricula" class="col-sm-2 col-form-label col-form-label-sm">Matricula</label>
+                    <div class="col-sm-9">
+                        <select class="custom-select custom-select" name="matricula">
+                            <?= $usuario->matriculaUsuarios();?>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label for="horaEntrada" class="col-sm-2 col-form-label col-form-label-sm">Hora de entrada</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" required name="horaEntrada">
+                    </div>
                 </div>
 
-                <?php endif; ?>
-            
                 <div class="form-group row">
-                    <label for="carrera" class="col-sm-2 col-form-label col-form-label-sm">Equipo</label>
+                    <label for="horaSalida" class="col-sm-2 col-form-label col-form-label-sm">Hora de salida</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-sm" id="horaSalida" placeholder="Hora de salida" required name="horaSalida">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="equipo" class="col-sm-2 col-form-label col-form-label-sm">Equipo</label>
                     <div class="col-sm-9">
                         <select class="custom-select custom-select" name="equipo">
                             <?= $observacion->nombreEquipos();?>
                         </select>
                     </div>
-                </div>
-
+                </div>                
+            
                 <div class="form-group row">
-                    <label for="ip" class="col-sm-2 col-form-label col-form-label-sm">IP</label>
+                    <label for="objetivo" class="col-sm-2 col-form-label col-form-label-sm">Objetivo del préstamo</label>
                     <div class="col-sm-9">
-                    <label for="matricula" class="col-sm-2 col-form-label col-form-label-sm"> <?= get_public_ip(); ?></label>
-                        <input type="text" class="form-control form-control-sm" id="ip" placeholder="ip" required name="ip" value=" <?= get_public_ip(); ?>" hidden>
+                        <input type="text" class="form-control form-control-sm" id="objetivo" placeholder="Objetivo del préstamo" required name="objetivo">
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="observación" class="col-sm-2 col-form-label col-form-label-sm">Observación</label>
-                    <textarea class="form-control" id="observación" rows="3" name="observacion"></textarea>
+                <div class="form-group row">
+                    <label for="materia" class="col-sm-2 col-form-label col-form-label-sm">Materia</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-sm" id="materia" placeholder="Materia" required name="materia">
+                    </div>
                 </div>
-
-
+                <div class="form-group row">
+                    <label for="maestro" class="col-sm-2 col-form-label col-form-label-sm">Maestro</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-sm" id="maestro" placeholder="Maestro" required name="maestro">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="fecha" class="col-sm-2 col-form-label col-form-label-sm">Fecha</label>
+                    <div class="col-sm-9">
+                        <label class="col-sm-2 col-form-label col-form-label-sm"><?php echo date('d-m-Y'); ?></label>
+                        <input type="date" value="<?php echo date('d-m-Y'); ?>" id="fecha" name="fecha" hidden/>
+                    </div>
+                </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">

@@ -11,13 +11,11 @@
                         Prestamos</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="./lista_de_equipos.php">Ver Equipos</a>
+                        <a class="dropdown-item" href="./lista_de_prestamos.php">Ver Préstamos</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="">Bitácora</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="">Observaciones</a>
+                    <a class="nav-link text-white" href="./lista_de_prestamos.php">Bitácora</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="./chat.php">Chat</a>
