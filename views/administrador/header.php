@@ -24,7 +24,7 @@
                     <a class="nav-link text-white" href="./lista_de_usuarios.php">Usuarios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="">Bitácora</a>
+                    <a class="nav-link text-white" href="#">Bitácora</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="./observaciones.php">Observaciones</a>
