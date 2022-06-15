@@ -262,7 +262,7 @@ class Usuario extends DB{
         //$query = $this->connect()->prepare('INSERT INTO observaciones (ID,NombreDelEquipo,IP,Observacion) VALUES (:ID,:NombreDelEquipo, :IP, :Observacion)');
         $query = $this->connect()->prepare('INSERT INTO observaciones (NombreDelEquipo,IP,Observacion) VALUES (:NombreDelEquipo, :IP, :Observacion)');
         //$query -> execute(['ID' => $id, 
-        $query -> execute([ 
+        $query -> execute([
         'NombreDelEquipo' => $nombreEquipo, 
         'IP' => $ip,
         'Observacion' => $observacion
@@ -275,6 +275,22 @@ class Usuario extends DB{
             return false;
         } 
  
+    }    
+
+    public function listarObservaciones(){
+
+        $data = $this->connect()->prepare('SELECT * FROM observaciones ORDER BY ID ASC');
+        $data ->execute();
+
+        foreach ($data as $row) {
+            echo  "<tr>" ;
+            echo  "<td>" . $row['NombreDelEquipo'] . "</td>";
+            echo  "<td>" . $row['IP'] . "</td>";
+            echo  "<td>" . $row['Observacion'] . "</td>";
+            echo  "</tr>" ;
+
+        }
+
     }    
 
 }
