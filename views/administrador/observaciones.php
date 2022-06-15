@@ -60,7 +60,7 @@ function get_public_ip(){
                 <?php endif; ?>
             
                 <div class="form-group row">
-                    <label for="carrera" class="col-sm-2 col-form-label col-form-label-sm">Equipo</label>
+                    <label for="equipo" class="col-sm-2 col-form-label col-form-label-sm">Equipo</label>
                     <div class="col-sm-9">
                         <select class="custom-select custom-select" name="equipo">
                             <?= $observacion->nombreEquipos();?>

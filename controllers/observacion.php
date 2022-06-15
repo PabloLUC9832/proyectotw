@@ -17,10 +17,8 @@ class Observacion extends DB{
     }
 
     public function insertarObservacion($nombreEquipo,$ip,$observacion){
-        $id=0;
-        //$query = $this->connect()->prepare('INSERT INTO observaciones (ID,NombreDelEquipo,IP,Observacion) VALUES (:ID,:NombreDelEquipo, :IP, :Observacion)');
+
         $query = $this->connect()->prepare('INSERT INTO observaciones (NombreDelEquipo,IP,Observacion) VALUES (:NombreDelEquipo, :IP, :Observacion)');
-        //$query -> execute(['ID' => $id, 
         $query -> execute([ 
         'NombreDelEquipo' => $nombreEquipo, 
         'IP' => $ip,

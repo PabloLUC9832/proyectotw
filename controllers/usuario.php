@@ -202,6 +202,18 @@ class Usuario extends DB{
  
     }
   
+// --------------------------- LISTAR NOMBRES DE USUARIOS -----------------------
+public function matriculaUsuarios(){
+
+    $data = $this->connect()->prepare('SELECT * FROM usuarios ORDER BY NombreCompleto ASC');
+    $data ->execute();
+
+    foreach ($data as $row) {
+        echo  "<option value='". $row['Matricula'] . "'>" . $row['Matricula'] . "</option>";
+
+    }
+
+}
 
 }
 

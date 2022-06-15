@@ -1,3 +1,34 @@
+<?php
+
+include_once '../../controllers/usuario.php';
+include_once '../../controllers/observacion.php';
+include_once '../../controllers/prestamo.php';
+
+$prestamo = new Prestamo();
+$observacion = new Observacion();
+$usuario = new Usuario();
+
+if(  isset($_POST['matricula']) && isset($_POST['horaEntrada']) && isset($_POST['horaSalida']) && isset($_POST['equipo']) && isset($_POST['objetivo']) && isset($_POST['materia']) && isset($_POST['maestro']) && isset($_POST['fecha']) ){
+    //$prestamo->insertarPrestamo($_POST['materia'] , $_POST['objetivo'], $_POST['horaEntrada'] , $_POST['matricula'] , $_POST['horaSalida'] , $_POST['equipo'] , $_POST['maestro'] , $_POST['fecha']  );
+    $prestamo->insertarPrestamo($_POST['materia'] , 
+                                $_POST['objetivo'],
+                                $_POST['horaEntrada'] ,
+                                $_POST['horaSalida'] ,
+                                $_POST['matricula'] ,
+                                $_POST['equipo'] , 
+                                $_POST['maestro'] , 
+                                date('d-m-Y')
+                                );
+    //header("location: ./lista_de_equipos.php");
+
+}else{
+    $msj = "Ingresa los datos solicitados. ";
+}
+
+print_r($_POST);
+
+?>
+
 <!-- Añadirlo al php.ini: extension=php_intl.dll -->
 <!-- https://unicode-org.github.io/icu/userguide/format_parse/datetime/ -->
 <!DOCTYPE html>
@@ -40,33 +71,40 @@
 
         
         <div class="container h-100">
-            <form action="../backend/registro_de_solicitud.php" method="POST">
-                
+            <form action="" method="POST">
+
+
                 <div class="form-group row">
-                    <label for="matricula" class="col-sm-2 col-form-label col-form-label-sm">Matrícula</label>
+                    <label for="matricula" class="col-sm-2 col-form-label col-form-label-sm">Matricula</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control form-control-sm" id="matricula" placeholder="matrícula" required name="matricula">
+                        <select class="custom-select custom-select" name="matricula">
+                            <?= $usuario->matriculaUsuarios();?>
+                        </select>
                     </div>
                 </div>
-
+                
                 <div class="form-group row">
                     <label for="horaEntrada" class="col-sm-2 col-form-label col-form-label-sm">Hora de entrada</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" required name="horaEntrada">
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <label for="horaSalida" class="col-sm-2 col-form-label col-form-label-sm">Hora de salida</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control form-control-sm" id="horaSalida" placeholder="Hora de salida" required name="horaSalida">
                     </div>
                 </div>
+
                 <div class="form-group row">
-                    <label for="nombreEquipo" class="col-sm-2 col-form-label col-form-label-sm">Nombre del equipo</label>
+                    <label for="equipo" class="col-sm-2 col-form-label col-form-label-sm">Equipo</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control form-control-sm" id="nombreEquipo" placeholder="Nombre del equipo" required name="nombreEquipo">
+                        <select class="custom-select custom-select" name="equipo">
+                            <?= $observacion->nombreEquipos();?>
+                        </select>
                     </div>
-                </div>
+                </div>                
             
                 <div class="form-group row">
                     <label for="objetivo" class="col-sm-2 col-form-label col-form-label-sm">Objetivo del préstamo</label>
@@ -89,7 +127,8 @@
                 <div class="form-group row">
                     <label for="fecha" class="col-sm-2 col-form-label col-form-label-sm">Fecha</label>
                     <div class="col-sm-9">
-                        <input type="date" value="<?php echo date('Y-m-d'); ?>"  disabled  id="fecha" name="fecha"/>
+                        <label class="col-sm-2 col-form-label col-form-label-sm"><?php echo date('d-m-Y'); ?></label>
+                        <input type="date" value="<?php echo date('d-m-Y'); ?>" id="fecha" name="fecha" hidden/>
                     </div>
                 </div>
                 <div class="container">
