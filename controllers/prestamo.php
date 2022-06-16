@@ -29,7 +29,8 @@ class Prestamo extends DB{
     }
 
     public function listarPrestamos(){
-        $fecha = date('d-m-Y');
+        //$fecha = date('d-m-Y');
+        $fecha = date('Y-m-d');
         $data = $this->connect()->prepare('SELECT * FROM prestamos WHERE FechaActual = "' . $fecha . '"');
         $data ->execute();
 
