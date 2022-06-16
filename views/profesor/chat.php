@@ -60,7 +60,7 @@ function quit(){
 		log("Goodbye!");
 		socket.close();
 		socket=null;
-        location.href = '../views/index.php';
+        location.href = './home.php';
 	}
 }
 

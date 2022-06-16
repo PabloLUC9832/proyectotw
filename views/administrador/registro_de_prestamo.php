@@ -7,7 +7,7 @@ include_once '../../controllers/prestamo.php';
 $prestamo = new Prestamo();
 $observacion = new Observacion();
 $usuario = new Usuario();
-
+//$fecha
 if(  isset($_POST['matricula']) && isset($_POST['horaEntrada']) && isset($_POST['horaSalida']) && isset($_POST['equipo']) && isset($_POST['objetivo']) && isset($_POST['materia']) && isset($_POST['maestro']) && isset($_POST['fecha']) ){
     //$prestamo->insertarPrestamo($_POST['materia'] , $_POST['objetivo'], $_POST['horaEntrada'] , $_POST['matricula'] , $_POST['horaSalida'] , $_POST['equipo'] , $_POST['maestro'] , $_POST['fecha']  );
     $prestamo->insertarPrestamo($_POST['materia'] , 

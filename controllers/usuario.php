@@ -40,7 +40,7 @@ class Usuario extends DB{
                     header('location: ../views/profesor/home.php');
                 break;
 
-                defaul: 
+                default: 
                     header('location: ../views/anonimo/home.php');
 
             }
