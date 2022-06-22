@@ -17,7 +17,7 @@ if(  isset($_POST['matricula']) && isset($_POST['horaEntrada']) && isset($_POST[
                                 $_POST['matricula'] ,
                                 $_POST['equipo'] , 
                                 $_POST['maestro'] , 
-                                date('d-m-Y')
+                                date('Y-m-d')
                                 );
     header("location: ./home.php");
 
