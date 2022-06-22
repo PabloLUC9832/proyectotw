@@ -3,6 +3,9 @@ include_once '../../controllers/usuario.php';
 $usuario = new Usuario();
 //print_r($_POST);
 
+list($matricula,$nombre,$carrera,$correo,$rol) = $usuario->setAtributos($_GET['matricula']);
+//echo $matricula . "-" . $nombre . "-" . $carrera . "-" . $correo . "-" . $rol; 
+
 if(isset($_POST['matricula']) && isset($_POST['nombre']) && isset($_POST['carrera']) && isset($_POST['correo']) && isset($_POST['rol'])){
 
     $usuario->actualizar($_POST['matricula'],$_POST['nombre'],$_POST['carrera'],$_POST['correo'],$_POST['rol']);
@@ -67,7 +70,8 @@ if(isset($_POST['matricula']) && isset($_POST['nombre']) && isset($_POST['carrer
             <div class="form-group row">
                 <label for="matricula" class="col-sm-2 col-form-label col-form-label-sm">Matricula</label>
                 <div class="col-sm-9">
-                <label for="matricula" class="col-sm-2 col-form-label col-form-label-sm"><?= $usuario->setMatricula($_GET['matricula']);?></label>
+                <!-- <label for="matricula" class="col-sm-2 col-form-label col-form-label-sm"><?= $usuario->setMatricula($_GET['matricula']);?></label> -->
+                    <label for="matricula" class="col-sm-2 col-form-label col-form-label-sm"><?= $matricula ;?></label>
                     <input type="text" class="form-control form-control-sm" id="nombre" required name="matricula" value="<?= $usuario->setMatricula($_GET['matricula']);?>" hidden>
                 </div>
             </div>
@@ -75,7 +79,8 @@ if(isset($_POST['matricula']) && isset($_POST['nombre']) && isset($_POST['carrer
             <div class="form-group row">
                 <label for="nombre" class="col-sm-2 col-form-label col-form-label-sm">Nombre</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="nombre" required name="nombre" value="<?= $usuario->setNombre($_GET['matricula']);?>">
+                    <!-- <input type="text" class="form-control form-control-sm" id="nombre" required name="nombre" value="<?= $usuario->setNombre($_GET['matricula']);?>"> -->
+                    <input type="text" class="form-control form-control-sm" id="nombre" required name="nombre" value="<?= $nombre;?>">
                 </div>
             </div>
 
@@ -83,7 +88,8 @@ if(isset($_POST['matricula']) && isset($_POST['nombre']) && isset($_POST['carrer
                 <label for="carrera" class="col-sm-2 col-form-label col-form-label-sm">Carrera</label>
                 <div class="col-sm-9">
                     <select class="custom-select custom-select" name="carrera">
-                        <option selected><?= $usuario->setCarrera($_GET['matricula']);?></option>
+                        <!-- <option selected><?= $usuario->setCarrera($_GET['matricula']);?></option> -->
+                        <option selected><?= $carrera ;?></option>
                         <option value="Estadística">Estadística</option>
                         <option value="Redes y Servicio de Cómputo">Redes y Servicio de Cómputo</option>
                         <option value="Tecnologías Computacionales">Tecnologías Computacionales</option>
@@ -96,7 +102,8 @@ if(isset($_POST['matricula']) && isset($_POST['nombre']) && isset($_POST['carrer
             <div class="form-group row">
                 <label for="correo" class="col-sm-2 col-form-label col-form-label-sm">Correo</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-control-sm" id="correo" required name="correo" value="<?= $usuario->setCorreo($_GET['matricula']);?>">
+                    <!-- <input type="text" class="form-control form-control-sm" id="correo" required name="correo" value="<?= $usuario->setCorreo($_GET['matricula']);?>"> -->
+                    <input type="text" class="form-control form-control-sm" id="correo" required name="correo" value="<?= $correo ;?>">
                 </div>
             </div>
 
@@ -104,13 +111,14 @@ if(isset($_POST['matricula']) && isset($_POST['nombre']) && isset($_POST['carrer
                 <label for="carrera" class="col-sm-2 col-form-label col-form-label-sm">Rol</label>
                 <div class="col-sm-9">
                     <select class="custom-select custom-select" name="rol">
-                        <option selected><?= $usuario->setRol($_GET['matricula']);?></option>
+                        <!-- <option selected><?= $usuario->setRol($_GET['matricula']);?></option> -->
+                        <option selected><?= $rol;?></option>
                         <option value="Administrador">Administrador</option>
                         <option value="Profesor">Profesor</option>
                         <option value="Estudiante">Estudiante</option>
                     </select>
                 </div>
-            </div>            
+            </div>
 
             <div class="container">
                 <div class="row">

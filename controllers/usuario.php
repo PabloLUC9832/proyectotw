@@ -155,6 +155,21 @@ class Usuario extends DB{
         echo $rol;
     }
 
+    public function setAtributos($mmatricula) : array {
+
+        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE matricula = :matricula');
+        $query ->execute(['matricula' => $mmatricula]);
+        $row = $query->fetch(PDO::FETCH_NUM);
+        $matricula = $row[0];
+        $nombre = $row[1];
+        $carrera = $row[3];
+        $correo = $row[4];
+        $rol = $row[5];
+
+        return [$matricula,$nombre,$carrera,$correo,$rol];
+
+    }
+
 // -------------------------- ACTUALIZAR DATOS DE UN USUARIO ESPECIFICO --------------------------------
     public function actualizar($Matricula,$NombreCompleto,$Carrera,$Correo,$Rol){
 
